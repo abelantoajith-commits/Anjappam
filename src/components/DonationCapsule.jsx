@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Clock, MapPin, CheckCircle2, User, HeartHandshake } from 'lucide-react';
 
@@ -115,9 +115,28 @@ export default function DonationCapsule({ donation, onAccept }) {
               <span>{donation.location}</span>
             </span>
 
-            <span className="inline-flex items-center gap-1.5 text-[#6B5440]">
-              <User className="w-3.5 h-3.5" />
-              <span>Offered by {donation.donorName}</span>
+            <span className="inline-flex items-center flex-wrap gap-1.5 text-[#6B5440]">
+              <User className="w-3.5 h-3.5 shrink-0" />
+              <span>Offered by</span>
+              <Link
+                to={`/donors/${donation.donorId}`}
+                className="font-medium text-[#845400] hover:text-[#5E7B3A] hover:underline transition-colors"
+                title={`View ${donation.donorName}'s public profile`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {donation.donorName}
+              </Link>
+              {donation.donorAverageRating !== null && donation.donorRatingCount > 0 ? (
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#FFEADA] text-[#845400] text-xs font-semibold border border-[#E8D9C5]">
+                  <span className="text-[#C98A2B]">★</span>
+                  <span>{donation.donorAverageRating.toFixed(1)}</span>
+                  <span className="text-[#837564] font-normal">({donation.donorRatingCount})</span>
+                </span>
+              ) : (
+                <span className="px-2 py-0.5 rounded-full bg-[#F5EFE6] text-[#837564] text-xs font-medium border border-[#E8D9C5]">
+                  New donor
+                </span>
+              )}
             </span>
           </div>
         </div>
@@ -160,6 +179,12 @@ export default function DonationCapsule({ donation, onAccept }) {
         {isAccepted && (
           <div className="text-xs font-semibold text-[#5E7B3A] bg-[#CCEEA0]/50 px-3 py-1.5 rounded-full border border-[#B0D186]">
             Claimed
+          </div>
+        )}
+
+        {donation.status === 'completed' && (
+          <div className="text-xs font-semibold text-[#5E7B3A] bg-[#CCEEA0]/80 px-3 py-1.5 rounded-full border border-[#B0D186]">
+            Completed
           </div>
         )}
 

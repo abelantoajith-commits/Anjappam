@@ -1,12 +1,14 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 import { donationsService } from '../services/donationsService';
 import { requestsService } from '../services/requestsService';
+import { ratingsService } from '../services/ratingsService';
 
 const DataContext = createContext(null);
 
 export function DataProvider({ children }) {
   const [donations, setDonations] = useState([]);
   const [requests, setRequests] = useState([]);
+  const [ratings, setRatings] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const refreshDonations = useCallback(async () => {
@@ -27,11 +29,20 @@ export function DataProvider({ children }) {
     }
   }, []);
 
+  const refreshRatings = useCallback(async () => {
+    try {
+      const data = await ratingsService.listAllRatings();
+      setRatings(data);
+    } catch (err) {
+      console.error('Error fetching ratings:', err);
+    }
+  }, []);
+
   const refreshAll = useCallback(async () => {
     setLoading(true);
-    await Promise.all([refreshDonations(), refreshRequests()]);
+    await Promise.all([refreshDonations(), refreshRequests(), refreshRatings()]);
     setLoading(false);
-  }, [refreshDonations, refreshRequests]);
+  }, [refreshDonations, refreshRequests, refreshRatings]);
 
   useEffect(() => {
     refreshAll();
@@ -61,6 +72,24 @@ export function DataProvider({ children }) {
     return updated;
   };
 
+  const markDonationPickedUp = async (id, receiverUser) => {
+    const updated = await donationsService.markAsPickedUp(id, receiverUser);
+    await refreshDonations();
+    return updated;
+  };
+
+  const submitRating = async (ratingData) => {
+    const created = await ratingsService.addRating(ratingData);
+    await Promise.all([refreshRatings(), refreshDonations()]);
+    return created;
+  };
+
+  const editRating = async (ratingId, data, receiverUser) => {
+    const updated = await ratingsService.updateRating(ratingId, data, receiverUser);
+    await Promise.all([refreshRatings(), refreshDonations()]);
+    return updated;
+  };
+
   const addRequest = async (data) => {
     const created = await requestsService.addRequest(data);
     await refreshRequests();
@@ -83,7 +112,7 @@ export function DataProvider({ children }) {
   const impactStats = useMemo(() => {
     const baseMeals = 5420;
     const acceptedDonationMeals = donations
-      .filter((d) => d.status === 'accepted')
+      .filter((d) => d.status === 'accepted' || d.status === 'completed')
       .reduce((acc, curr) => acc + (Number(curr.quantity) || 0), 0);
     const acceptedRequestMeals = requests
       .filter((r) => r.status === 'accepted')
@@ -104,14 +133,19 @@ export function DataProvider({ children }) {
       value={{
         donations,
         requests,
+        ratings,
         loading,
         refreshDonations,
         refreshRequests,
+        refreshRatings,
         refreshAll,
         addDonation,
         updateDonation,
         deleteDonation,
         acceptDonation,
+        markDonationPickedUp,
+        submitRating,
+        editRating,
         addRequest,
         acceptRequest,
         deleteRequest,

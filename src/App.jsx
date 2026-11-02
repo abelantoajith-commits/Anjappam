@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Donate from './pages/Donate';
 import Receive from './pages/Receive';
 import Requests from './pages/Requests';
+import DonorProfile from './pages/DonorProfile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NotFound from './pages/NotFound';
@@ -28,6 +29,7 @@ function AppLayout() {
           <Route path="/donate" element={<Donate />} />
           <Route path="/receive" element={<Receive />} />
           <Route path="/requests" element={<Requests />} />
+          <Route path="/donors/:id" element={<DonorProfile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<NotFound />} />

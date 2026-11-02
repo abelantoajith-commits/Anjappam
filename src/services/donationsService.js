@@ -31,15 +31,30 @@ export const donationsService = {
     const users = await authService.listUsers();
     const userMap = new Map(users.map((u) => [u.id, u]));
 
+    const ratings = getItem(STORAGE_KEYS.RATINGS, []);
+    const ratingMap = new Map();
+    ratings.forEach((r) => {
+      if (!ratingMap.has(r.donorId)) ratingMap.set(r.donorId, []);
+      ratingMap.get(r.donorId).push(Number(r.stars) || 0);
+    });
+
     return donations.map((donation) => {
       const donor = userMap.get(donation.donorId);
       const isExpired = donation.status === 'available' && isDonationExpired(donation.date, donation.time);
+      const donorStars = ratingMap.get(donation.donorId) || [];
+      const donorRatingCount = donorStars.length;
+      const donorAverageRating = donorRatingCount > 0
+        ? Number((donorStars.reduce((a, b) => a + b, 0) / donorRatingCount).toFixed(1))
+        : null;
+
       return {
         ...donation,
         status: isExpired ? 'expired' : donation.status,
         donorName: donor ? (donor.institutionName || donor.contactName) : 'Kind Donor',
         donorContactName: donor?.contactName || '',
         donorPhone: donor?.phone || '+91 98471 23456',
+        donorAverageRating,
+        donorRatingCount,
       };
     });
   },
@@ -120,6 +135,39 @@ export const donationsService = {
     const filtered = donations.filter((d) => d.id !== id);
     setItem(STORAGE_KEYS.DONATIONS, filtered);
     return true;
+  },
+
+  /**
+   * Marks an accepted donation as picked up (completed).
+   */
+  async markAsPickedUp(id, receiverUser) {
+    if (!receiverUser || receiverUser.userType !== 'receiver') {
+      throw new Error('Only the receiver who accepted this donation can mark it as picked up.');
+    }
+
+    initializeStorageIfEmpty();
+    const donations = getItem(STORAGE_KEYS.DONATIONS, []);
+    const index = donations.findIndex((d) => d.id === id);
+    if (index === -1) throw new Error('Donation not found.');
+
+    const donation = donations[index];
+    if (donation.acceptedBy !== receiverUser.id) {
+      throw new Error('You can only mark donations you have accepted as picked up.');
+    }
+
+    if (donation.status === 'completed') {
+      return donation;
+    }
+
+    if (donation.status !== 'accepted') {
+      throw new Error('Only accepted donations can be marked as picked up.');
+    }
+
+    donations[index].status = 'completed';
+    donations[index].pickedUpAt = new Date().toISOString();
+
+    setItem(STORAGE_KEYS.DONATIONS, donations);
+    return donations[index];
   },
 
   /**

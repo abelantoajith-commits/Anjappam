@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useData } from '../context/DataContext';
+import { ratingsService } from '../services/ratingsService';
 import { useToast } from '../components/Toast';
 import ConfirmDialog from '../components/ConfirmDialog';
+import StarRating from '../components/StarRating';
 import { 
   HandPlatter, 
   Plus, 
@@ -16,7 +18,8 @@ import {
   CheckCircle2, 
   AlertCircle,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Star
 } from 'lucide-react';
 
 const SUGGESTIONS = ['Biriyani', 'Rice & Curry', 'Chapati', 'Fresh Bread Loaves', 'Vegetable Meals', 'Appam & Stew'];
@@ -47,6 +50,15 @@ export default function Donate() {
 
   // Delete State
   const [deletingId, setDeletingId] = useState(null);
+
+  // Donor Rating Summary State
+  const [donorSummary, setDonorSummary] = useState(null);
+
+  useEffect(() => {
+    if (user && isDonor) {
+      ratingsService.getDonorSummary(user.id).then(setDonorSummary);
+    }
+  }, [user, isDonor, donations]);
 
   // Get current donor's donations
   const myDonations = donations.filter((d) => user && d.donorId === user.id);
@@ -381,6 +393,46 @@ export default function Donate() {
             {user ? `${myDonations.length} total offering(s) registered` : 'Log in to track your past offerings'}
           </p>
         </div>
+
+        {/* Donor Rating Summary Banner */}
+        {user && isDonor && (
+          <div className="bg-white rounded-2xl p-5 border border-[#E8D9C5] shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-2xl bg-[#FFEADA] text-[#C98A2B] flex items-center justify-center shrink-0 border border-[#E8D9C5]">
+                <Star className="w-6 h-6 fill-[#C98A2B]" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  {donorSummary && donorSummary.ratingCount > 0 ? (
+                    <>
+                      <span className="font-serif text-xl font-bold text-[#3B2A1A]">
+                        ★ {donorSummary.averageRating.toFixed(1)}
+                      </span>
+                      <span className="text-xs text-[#837564]">
+                        ({donorSummary.ratingCount} review{donorSummary.ratingCount > 1 ? 's' : ''})
+                      </span>
+                    </>
+                  ) : (
+                    <span className="text-xs font-semibold text-[#845400] bg-[#FFDDB5] px-2.5 py-0.5 rounded-full">
+                      New Donor · No ratings yet
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs text-[#514536] mt-0.5">
+                  Your public rating and feedback from receiving shelters across Kerala
+                </p>
+              </div>
+            </div>
+
+            <Link
+              to={`/donors/${user.id}`}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#FFF8EE] hover:bg-[#FFEADA] text-[#845400] text-xs font-bold border border-[#E8D9C5] shadow-sm transition-colors shrink-0"
+            >
+              <span>View Public Profile</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        )}
 
         {!user ? (
           <div className="p-8 rounded-3xl bg-white border border-[#E8D9C5] text-center max-w-md mx-auto">

@@ -196,15 +196,36 @@ Tagline, links (Home, Donate, Receive), placeholder contact, food-safety disclai
 - Inline validation; on success create the account, auto-login, redirect by user type.
 - Show the demo-mode password notice (see §2).
 
+### 8.7 Donor Ratings & Reviews (`/donors/:id`)
+
+- **Rating Eligibility & Flow:**
+  - Only logged-in Receivers can rate, and only for donations they previously accepted and marked as "Picked up".
+  - Status progression for donations: `available` → `accepted` → `completed` (marked as picked up).
+  - One rating per donation per receiver; editing afterwards is allowed without creating duplicates.
+  - Donors cannot rate themselves or others. Visitors can view ratings but cannot submit ratings.
+- **Rating Specification:**
+  - Whole numbers: 1 to 5 stars.
+  - Optional review comment: up to 200 characters (sanitized/escaped on render).
+- **Pick-up and Rating UX:**
+  - Receive page provides a "My Claimed Meals" view for logged-in receivers.
+  - Accepted donations display a "Mark as picked up" button.
+  - Confirming pickup prompts an immediate "Rate this donor" dialog with interactive star selector (arrow key and click accessible), character counter, and Submit / Skip options.
+  - Skipped donations retain a "Rate now" button; already-rated donations offer an "Edit rating" button.
+- **Donor Badges & Public Profile:**
+  - Receive page capsules display a donor star badge: `★ 4.6 (23)` or a muted `New donor` pill. Clicking the donor name opens their public profile.
+  - Public Donor Profile (`/donors/:id`): Displays institution name, contact first name only (phone number is hidden for privacy), computed average rating, star distribution bars (5 to 1), total completed donations count, and list of reviews. Shows "No ratings yet" when empty.
+  - Donate page: Shows donor's own average rating, review count, and a direct link to their public profile in the "Your Donations" section.
+  - Home page: "Top-Rated Donors" section placed after the Saints section, featuring up to 4 qualified donors with at least 3 ratings (hidden if fewer than 3 qualify).
+
 ---
 
 ## 9. Client-Side Data & Auth
 
 ### Storage keys (`localStorage`)
-`anjappam_users`, `anjappam_donations`, `anjappam_requests`, `anjappam_session`
+`anjappam_users`, `anjappam_donations`, `anjappam_requests`, `anjappam_ratings`, `anjappam_session`
 
 ### Seed data
-On first load (if keys are empty), insert: 2 sample donors, 2 sample receivers, 6–8 sample donations and 4–5 sample requests with Kerala locations and future dates (generate dates relative to today so they never look expired). Provide demo credentials in the README (e.g., `donor_demo` / `receiver_demo`) and optionally a "Use demo account" link on the Login page.
+On first load (if keys are empty), insert: 4 sample donors, 2 sample receivers, sample donations (including active and completed items), 4–5 sample requests, and 10–15 sample ratings across donors with realistic Kerala feedback comments. Generate dates relative to today so they never look expired. Provide demo credentials in the README (e.g., `donor_demo` / `receiver_demo`) and optionally a "Use demo account" link on the Login page.
 
 ### Auth (simulated)
 - Sign Up writes a user object to `anjappam_users`. Hash the password with the Web Crypto API (SHA-256) before storing; never store plain text.
@@ -214,12 +235,14 @@ On first load (if keys are empty), insert: 2 sample donors, 2 sample receivers, 
 - Wrap all storage reads/writes in try/catch and handle corrupted or missing data by resetting to seed data.
 
 ### Data model
-**users:** `id, institutionName, contactName, phone, userType (donor|receiver), username, passwordHash, createdAt`
-**donations:** `id, donorId, item, quantity, unit, date, time, location, status (available|accepted|expired), acceptedBy, createdAt`
-**requests:** `id, receiverId, item, quantity, neededByDate, neededByTime, location, status (open|accepted), acceptedBy, createdAt`
+**users:** `id, institutionName, contactName, phone, userType (donor|receiver), username, passwordHash, createdAt`  
+**donations:** `id, donorId, item, quantity, unit, date, time, location, status (available|accepted|completed|expired), acceptedBy, acceptedByName, acceptedByPhone, pickedUpAt, ratingId, createdAt`  
+**requests:** `id, receiverId, item, numberOfPeople, neededByDate, neededByTime, location, status (open|accepted), acceptedBy, createdAt`  
+**ratings:** `id, donationId, donorId, receiverId, receiverName, stars (1-5), comment (up to 200 chars), createdAt, updatedAt`  
+**derived (computed, not stored):** per-donor `averageRating` (1 decimal), `ratingCount`, rating distribution `[1..5]`.
 
 ### Service layer (swap-ready)
-`authService`, `donationsService`, `requestsService` expose async functions (e.g., `listDonations()`, `addDonation()`, `acceptDonation()`) that currently read/write `localStorage`. UI components must call only these services, never `localStorage` directly.
+`authService`, `donationsService`, `requestsService`, `ratingsService` expose async functions (e.g., `listDonations()`, `addDonation()`, `acceptDonation()`, `markAsPickedUp()`, `addRating()`, `updateRating()`, `listRatingsForDonor()`, `getDonorSummary()`, `listTopDonors()`) that read/write `localStorage`. UI components must call only these services, never `localStorage` directly.
 
 ---
 
@@ -297,11 +320,16 @@ anjappam/
 
 ## 15. Acceptance Criteria
 
-- `npm run build` succeeds, and the deployed Vercel site loads every route directly (including refresh on `/receive`) without a 404.
+- `npm run build` succeeds, and the deployed Vercel site loads every route directly (including refresh on `/receive` and `/donors/:id`) without a 404.
 - No backend, API keys or environment variables are needed.
 - Home hero quote rotates automatically through 6 verses; both buttons route correctly; Matthew 25:40 appears in the closing section.
-- Donate form validates; "Add" shows entries in the bottom section and they survive a page refresh.
-- Receive page lists donations as capsules with a working Accept per role rules.
+- Saints on Sharing Food section renders transparent saint images with exact quotes/teachings.
+- Top-Rated Donors section renders up to 4 donors with >= 3 ratings and links to their profiles; hides if fewer than 3 qualify.
+- Donate form validates; "Add" shows entries in the bottom section and they survive a page refresh; shows donor's own rating and profile link.
+- Receive page lists donations as capsules with a working Accept per role rules and donor star ratings.
+- Pick-up flow allows logged-in receivers to mark accepted donations as picked up, triggering the rating dialog with star selector and comment counter.
+- Editing ratings updates the review without duplication; donors cannot rate anyone; visitors cannot rate.
+- Public donor profile at `/donors/:id` shows institution name, contact first name only (phone number hidden), average rating, star distribution bars, and reviews list.
 - Requests page lists requests with a working Accept for donors.
 - Sign Up has all 7 fields with validation; Login works with username and password; passwords are hashed before storage.
 - Role restrictions work (Visitor / Donor / Receiver).

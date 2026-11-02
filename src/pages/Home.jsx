@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import QuoteRotator from '../components/QuoteRotator';
 import SaintsRotator from '../components/SaintsRotator';
+import StarRating from '../components/StarRating';
 import { useData } from '../context/DataContext';
+import { ratingsService } from '../services/ratingsService';
 import { 
   HeartHandshake, 
   UtensilsCrossed, 
@@ -16,12 +18,19 @@ import {
   Users,
   Wheat,
   Smile,
-  CheckCircle2
+  CheckCircle2,
+  Star,
+  Award
 } from 'lucide-react';
 import { CLOSING_VERSE } from '../data/quotes';
 
 export default function Home() {
   const { impactStats } = useData();
+  const [topDonors, setTopDonors] = useState([]);
+
+  useEffect(() => {
+    ratingsService.listTopDonors(3, 4).then(setTopDonors).catch(console.error);
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -100,6 +109,65 @@ export default function Home() {
 
       {/* Saints on Sharing Food (PRD §8.1) */}
       <SaintsRotator />
+
+      {/* Top-Rated Donors Section (PRD §8.7) - Shown only if at least 3 donors qualify */}
+      {topDonors.length >= 3 && (
+        <section className="py-16 bg-[#FFFDF9] border-t border-[#E8D9C5]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FFEADA] text-[#845400] text-xs font-bold uppercase tracking-wider mb-2 border border-[#E8D9C5]">
+                <Award className="w-3.5 h-3.5 text-[#C98A2B]" />
+                <span>Faithful Stewards</span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#3B2A1A] tracking-tight">
+                Top-Rated Food Donors
+              </h2>
+              <p className="text-sm sm:text-base text-[#514536] mt-2 leading-relaxed">
+                Celebrating Kerala caterers and kitchens recognized by shelters for punctual food pickups, warmth, and nutritious abundance.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {topDonors.map((donor) => (
+                <Link
+                  key={donor.id}
+                  to={`/donors/${donor.id}`}
+                  className="group bg-white rounded-3xl p-6 border border-[#E8D9C5] shadow-sm hover:shadow-md hover:border-[#C98A2B] transition-all flex flex-col justify-between transform hover:-translate-y-1"
+                >
+                  <div>
+                    <div className="w-12 h-12 rounded-2xl bg-[#FFEADA] text-[#845400] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform border border-[#E8D9C5]">
+                      <Building2 className="w-6 h-6 text-[#845400]" />
+                    </div>
+
+                    <h3 className="font-serif text-lg font-bold text-[#3B2A1A] group-hover:text-[#845400] transition-colors leading-snug line-clamp-2 mb-2">
+                      {donor.institutionName}
+                    </h3>
+
+                    {/* Star Rating & Count */}
+                    <div className="flex items-center gap-2 mb-3">
+                      <StarRating mode="display" value={donor.averageRating} size={15} id={`home-top-${donor.id}`} />
+                      <span className="text-xs font-bold text-[#3B2A1A]">
+                        {donor.averageRating.toFixed(1)}
+                      </span>
+                      <span className="text-xs text-[#837564]">
+                        ({donor.ratingCount})
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-[#F5EFE6] flex items-center justify-between text-xs text-[#514536]">
+                    <span className="inline-flex items-center gap-1 font-medium text-[#5E7B3A]">
+                      <HeartHandshake className="w-3.5 h-3.5" />
+                      <span>{donor.mealsShared.toLocaleString()} meals shared</span>
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-[#C98A2B] group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Impact Counters Section (PRD §8.1) */}
       <section className="py-16 bg-[#FFF8EE] border-y border-[#E8D9C5]">

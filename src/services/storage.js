@@ -10,6 +10,7 @@ export const STORAGE_KEYS = {
   DONATIONS: 'anjappam_donations',
   REQUESTS: 'anjappam_requests',
   SESSION: 'anjappam_session',
+  RATINGS: 'anjappam_ratings',
 };
 
 /**
@@ -28,6 +29,9 @@ export function initializeStorageIfEmpty() {
     if (!localStorage.getItem(STORAGE_KEYS.REQUESTS)) {
       localStorage.setItem(STORAGE_KEYS.REQUESTS, JSON.stringify(seed.requests));
     }
+    if (!localStorage.getItem(STORAGE_KEYS.RATINGS)) {
+      localStorage.setItem(STORAGE_KEYS.RATINGS, JSON.stringify(seed.ratings || []));
+    }
   } catch (error) {
     console.error('Storage initialization failed, resetting storage:', error);
     resetToSeedData();
@@ -43,6 +47,7 @@ export function resetToSeedData() {
     localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(seed.users));
     localStorage.setItem(STORAGE_KEYS.DONATIONS, JSON.stringify(seed.donations));
     localStorage.setItem(STORAGE_KEYS.REQUESTS, JSON.stringify(seed.requests));
+    localStorage.setItem(STORAGE_KEYS.RATINGS, JSON.stringify(seed.ratings || []));
     localStorage.removeItem(STORAGE_KEYS.SESSION);
     return seed;
   } catch (error) {
@@ -90,4 +95,3 @@ export function removeItem(key) {
     return false;
   }
 }
-

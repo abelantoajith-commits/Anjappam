@@ -18,6 +18,9 @@ const DEMO_PASSWORD_HASH = '0ead2060b65992dca4769af601a1b3a35ef38cfad2c2c465bb16
 
 export function getInitialSeedData() {
   const today = getRelativeDateStr(0);
+  const yesterday = getRelativeDateStr(-1);
+  const twoDaysAgo = getRelativeDateStr(-2);
+  const threeDaysAgo = getRelativeDateStr(-3);
   const tomorrow = getRelativeDateStr(1);
   const dayAfter = getRelativeDateStr(2);
   const threeDays = getRelativeDateStr(3);
@@ -44,6 +47,26 @@ export function getInitialSeedData() {
       createdAt: new Date().toISOString(),
     },
     {
+      id: 'usr_donor_3',
+      institutionName: 'St. Mary’s Feast Caterers',
+      contactName: 'George Joseph',
+      phone: '+91 97451 11223',
+      userType: 'donor',
+      username: 'st_mary_feasts',
+      passwordHash: DEMO_PASSWORD_HASH,
+      createdAt: new Date().toISOString(),
+    },
+    {
+      id: 'usr_donor_4',
+      institutionName: 'Annapoorna Community Kitchen',
+      contactName: 'Lakshmi Nair',
+      phone: '+91 98462 44556',
+      userType: 'donor',
+      username: 'annapoorna_kitchen',
+      passwordHash: DEMO_PASSWORD_HASH,
+      createdAt: new Date().toISOString(),
+    },
+    {
       id: 'usr_receiver_1',
       institutionName: "St. Joseph's Children's Home & Shelter",
       contactName: 'Sr. Gracy Joseph',
@@ -65,6 +88,9 @@ export function getInitialSeedData() {
     },
   ];
 
+  // Extended donations model:
+  // status: 'available' | 'accepted' | 'completed' | 'expired'
+  // pickedUpAt: ISO string | null, ratingId: string | null
   const donations = [
     {
       id: 'don_1',
@@ -79,6 +105,8 @@ export function getInitialSeedData() {
       acceptedBy: null,
       acceptedByName: null,
       acceptedByPhone: null,
+      pickedUpAt: null,
+      ratingId: null,
       createdAt: new Date(Date.now() - 3600000 * 4).toISOString(),
     },
     {
@@ -94,6 +122,8 @@ export function getInitialSeedData() {
       acceptedBy: null,
       acceptedByName: null,
       acceptedByPhone: null,
+      pickedUpAt: null,
+      ratingId: null,
       createdAt: new Date(Date.now() - 3600000 * 3).toISOString(),
     },
     {
@@ -109,11 +139,13 @@ export function getInitialSeedData() {
       acceptedBy: null,
       acceptedByName: null,
       acceptedByPhone: null,
+      pickedUpAt: null,
+      ratingId: null,
       createdAt: new Date(Date.now() - 3600000 * 6).toISOString(),
     },
     {
       id: 'don_4',
-      donorId: 'usr_donor_1',
+      donorId: 'usr_donor_3',
       item: 'Ghee Rice & Vegetable Kurma',
       quantity: 65,
       unit: 'Plates',
@@ -124,6 +156,8 @@ export function getInitialSeedData() {
       acceptedBy: null,
       acceptedByName: null,
       acceptedByPhone: null,
+      pickedUpAt: null,
+      ratingId: null,
       createdAt: new Date(Date.now() - 3600000 * 8).toISOString(),
     },
     {
@@ -139,6 +173,8 @@ export function getInitialSeedData() {
       acceptedBy: null,
       acceptedByName: null,
       acceptedByPhone: null,
+      pickedUpAt: null,
+      ratingId: null,
       createdAt: new Date(Date.now() - 3600000 * 12).toISOString(),
     },
     {
@@ -154,6 +190,8 @@ export function getInitialSeedData() {
       acceptedBy: null,
       acceptedByName: null,
       acceptedByPhone: null,
+      pickedUpAt: null,
+      ratingId: null,
       createdAt: new Date(Date.now() - 3600000 * 18).toISOString(),
     },
     {
@@ -169,12 +207,81 @@ export function getInitialSeedData() {
       acceptedBy: 'usr_receiver_1',
       acceptedByName: "St. Joseph's Children's Home & Shelter",
       acceptedByPhone: '+91 94951 88220',
+      pickedUpAt: null,
+      ratingId: null,
       createdAt: new Date(Date.now() - 3600000 * 24).toISOString(),
+    },
+    // Completed donations that have ratings
+    {
+      id: 'don_comp_1',
+      donorId: 'usr_donor_1',
+      item: 'Malabar Chicken Biriyani Packets',
+      quantity: 45,
+      unit: 'Plates',
+      date: yesterday,
+      time: '19:00',
+      location: 'Edappally, Kochi',
+      status: 'completed',
+      acceptedBy: 'usr_receiver_1',
+      acceptedByName: "St. Joseph's Children's Home & Shelter",
+      acceptedByPhone: '+91 94951 88220',
+      pickedUpAt: new Date(Date.now() - 3600000 * 20).toISOString(),
+      ratingId: 'rat_1',
+      createdAt: new Date(Date.now() - 3600000 * 26).toISOString(),
+    },
+    {
+      id: 'don_comp_2',
+      donorId: 'usr_donor_2',
+      item: 'Bakery Milk Bread Loaves',
+      quantity: 60,
+      unit: 'Packets',
+      date: yesterday,
+      time: '18:30',
+      location: 'Palarivattom, Kochi',
+      status: 'completed',
+      acceptedBy: 'usr_receiver_2',
+      acceptedByName: 'Snehabhavan Old Age Care Home',
+      acceptedByPhone: '+91 97455 33441',
+      pickedUpAt: new Date(Date.now() - 3600000 * 22).toISOString(),
+      ratingId: 'rat_2',
+      createdAt: new Date(Date.now() - 3600000 * 28).toISOString(),
+    },
+    {
+      id: 'don_comp_3',
+      donorId: 'usr_donor_3',
+      item: 'Sadya Rice and Sambar Tiffin Set',
+      quantity: 50,
+      unit: 'Plates',
+      date: twoDaysAgo,
+      time: '13:30',
+      location: 'Kakkanad, Kochi',
+      status: 'completed',
+      acceptedBy: 'usr_receiver_1',
+      acceptedByName: "St. Joseph's Children's Home & Shelter",
+      acceptedByPhone: '+91 94951 88220',
+      pickedUpAt: new Date(Date.now() - 3600000 * 46).toISOString(),
+      ratingId: 'rat_3',
+      createdAt: new Date(Date.now() - 3600000 * 50).toISOString(),
+    },
+    {
+      id: 'don_comp_4',
+      donorId: 'usr_donor_1',
+      item: 'Fried Rice & Chilly Gobi Meals',
+      quantity: 40,
+      unit: 'Plates',
+      date: threeDaysAgo,
+      time: '20:00',
+      location: 'Kaloor, Kochi',
+      status: 'completed',
+      acceptedBy: 'usr_receiver_2',
+      acceptedByName: 'Snehabhavan Old Age Care Home',
+      acceptedByPhone: '+91 97455 33441',
+      pickedUpAt: new Date(Date.now() - 3600000 * 70).toISOString(),
+      ratingId: 'rat_4',
+      createdAt: new Date(Date.now() - 3600000 * 74).toISOString(),
     },
   ];
 
-  // OVERRIDE: Food requests are sized by NUMBER OF PEOPLE, not plates.
-  // Fields: item, numberOfPeople, location, neededByDate, neededByTime
   const requests = [
     {
       id: 'req_1',
@@ -234,6 +341,145 @@ export function getInitialSeedData() {
     },
   ];
 
-  return { users, donations, requests };
-}
+  // 12 to 15 sample ratings across sample donors
+  // Realistic mix (mostly 4 and 5 stars, a few 3s, one 2) with Kerala-flavoured short comments
+  const ratings = [
+    // Donor 1 (Malabar Palace Caterers) - 5 ratings (Avg ~4.6)
+    {
+      id: 'rat_1',
+      donationId: 'don_comp_1',
+      donorId: 'usr_donor_1',
+      receiverId: 'usr_receiver_1',
+      receiverName: "St. Joseph's Children's Home & Shelter",
+      stars: 5,
+      comment: 'Food was hot and well packed. Children enjoyed the biriyani thoroughly!',
+      createdAt: new Date(Date.now() - 3600000 * 19).toISOString(),
+    },
+    {
+      id: 'rat_4',
+      donationId: 'don_comp_4',
+      donorId: 'usr_donor_1',
+      receiverId: 'usr_receiver_2',
+      receiverName: 'Snehabhavan Old Age Care Home',
+      stars: 5,
+      comment: 'Wholesome rice and curry, generous portions that fed all our senior residents.',
+      createdAt: new Date(Date.now() - 3600000 * 68).toISOString(),
+    },
+    {
+      id: 'rat_5',
+      donationId: 'don_prev_1',
+      donorId: 'usr_donor_1',
+      receiverId: 'usr_receiver_1',
+      receiverName: "St. Joseph's Children's Home & Shelter",
+      stars: 4,
+      comment: 'Pickup was a little late, but the food was good and freshly prepared.',
+      createdAt: new Date(Date.now() - 3600000 * 90).toISOString(),
+    },
+    {
+      id: 'rat_6',
+      donationId: 'don_prev_2',
+      donorId: 'usr_donor_1',
+      receiverId: 'usr_receiver_2',
+      receiverName: 'Snehabhavan Old Age Care Home',
+      stars: 5,
+      comment: 'Very gracious staff at pickup counter. Clean stainless containers provided.',
+      createdAt: new Date(Date.now() - 3600000 * 120).toISOString(),
+    },
+    {
+      id: 'rat_7',
+      donationId: 'don_prev_3',
+      donorId: 'usr_donor_1',
+      receiverId: 'usr_receiver_1',
+      receiverName: "St. Joseph's Children's Home & Shelter",
+      stars: 4,
+      comment: 'Delicious feast meals, blessed our Saturday gathering.',
+      createdAt: new Date(Date.now() - 3600000 * 150).toISOString(),
+    },
 
+    // Donor 2 (Cochin Breadworks & Bakery) - 4 ratings (Avg ~4.5)
+    {
+      id: 'rat_2',
+      donationId: 'don_comp_2',
+      donorId: 'usr_donor_2',
+      receiverId: 'usr_receiver_2',
+      receiverName: 'Snehabhavan Old Age Care Home',
+      stars: 5,
+      comment: 'Freshly baked soft bread loaves, our elders were so touched and happy.',
+      createdAt: new Date(Date.now() - 3600000 * 21).toISOString(),
+    },
+    {
+      id: 'rat_8',
+      donationId: 'don_prev_4',
+      donorId: 'usr_donor_2',
+      receiverId: 'usr_receiver_1',
+      receiverName: "St. Joseph's Children's Home & Shelter",
+      stars: 5,
+      comment: 'Wonderful whole wheat buns and bread, perfect for the kids morning breakfast.',
+      createdAt: new Date(Date.now() - 3600000 * 80).toISOString(),
+    },
+    {
+      id: 'rat_9',
+      donationId: 'don_prev_5',
+      donorId: 'usr_donor_2',
+      receiverId: 'usr_receiver_2',
+      receiverName: 'Snehabhavan Old Age Care Home',
+      stars: 4,
+      comment: 'Good bakery items. Buns were still fresh and soft.',
+      createdAt: new Date(Date.now() - 3600000 * 110).toISOString(),
+    },
+    {
+      id: 'rat_10',
+      donationId: 'don_prev_6',
+      donorId: 'usr_donor_2',
+      receiverId: 'usr_receiver_1',
+      receiverName: "St. Joseph's Children's Home & Shelter",
+      stars: 4,
+      comment: 'Helpful bakery supervisor assisted with loading into our vehicle.',
+      createdAt: new Date(Date.now() - 3600000 * 140).toISOString(),
+    },
+
+    // Donor 3 (St. Mary’s Feast Caterers) - 4 ratings (Avg ~4.0, includes a 3 and 2)
+    {
+      id: 'rat_3',
+      donationId: 'don_comp_3',
+      donorId: 'usr_donor_3',
+      receiverId: 'usr_receiver_1',
+      receiverName: "St. Joseph's Children's Home & Shelter",
+      stars: 5,
+      comment: 'Plentiful sadya curries and rice, served with great love and care.',
+      createdAt: new Date(Date.now() - 3600000 * 45).toISOString(),
+    },
+    {
+      id: 'rat_11',
+      donationId: 'don_prev_7',
+      donorId: 'usr_donor_3',
+      receiverId: 'usr_receiver_2',
+      receiverName: 'Snehabhavan Old Age Care Home',
+      stars: 4,
+      comment: 'Tasty food, well received by all our residents.',
+      createdAt: new Date(Date.now() - 3600000 * 75).toISOString(),
+    },
+    {
+      id: 'rat_12',
+      donationId: 'don_prev_8',
+      donorId: 'usr_donor_3',
+      receiverId: 'usr_receiver_1',
+      receiverName: "St. Joseph's Children's Home & Shelter",
+      stars: 3,
+      comment: 'Food was tasty, but packing containers were slightly leaking during transit.',
+      createdAt: new Date(Date.now() - 3600000 * 105).toISOString(),
+    },
+    {
+      id: 'rat_13',
+      donationId: 'don_prev_9',
+      donorId: 'usr_donor_3',
+      receiverId: 'usr_receiver_2',
+      receiverName: 'Snehabhavan Old Age Care Home',
+      stars: 2,
+      comment: 'Pickup delayed by nearly an hour; food had cooled down considerably.',
+      createdAt: new Date(Date.now() - 3600000 * 135).toISOString(),
+    },
+  ];
+
+  return { users, donations, requests, ratings };
+}
