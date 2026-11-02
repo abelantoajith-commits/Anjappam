@@ -26,12 +26,23 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative pt-28 pb-20 sm:pt-36 sm:pb-28 overflow-hidden bg-gradient-to-b from-[#FFF8EE] via-[#FFF1E8] to-[#FFF8EE]">
+      <section className="relative pt-28 pb-20 sm:pt-36 sm:pb-28 overflow-hidden min-h-[640px] md:min-h-[720px] flex items-center justify-center">
+        {/* Main Sacred Loaves & Fish Background from Images/Main Bg for homepage.jpeg */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center sm:bg-[center_35%] bg-no-repeat" 
+          style={{ backgroundImage: `url('/main-bg.jpeg')` }}
+          aria-hidden="true"
+        />
+        {/* Subtle Light Scrim to let the artwork shine clearly */}
+        <div className="absolute inset-0 bg-[#FFF8EE]/20" />
+        {/* Soft bottom blend to transition smoothly into the impact counter section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF8EE]/10 via-transparent to-[#FFF8EE]" />
+        
         {/* Subtle decorative background circles */}
         <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#C98A2B]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-48 right-10 w-72 h-72 bg-[#5E7B3A]/10 rounded-full blur-2xl pointer-events-none" />
         
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
           
           {/* Subtle Kerala Sanctuary Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFEADA] text-[#845400] text-xs uppercase tracking-widest font-bold mb-6 border border-[#E8D9C5] shadow-sm">
@@ -40,16 +51,16 @@ export default function Home() {
           </div>
 
           {/* Large Title: ANJAPPAM */}
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#3B2A1A] mb-2 drop-shadow-sm">
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#27180A] mb-2 drop-shadow-[0_2px_12px_rgba(255,248,238,0.9)]">
             ANJAPPAM
           </h1>
 
           {/* Sacred Subtitle */}
-          <p className="font-sans text-xs sm:text-sm uppercase tracking-[0.3em] text-[#C98A2B] font-bold mb-4">
+          <p className="font-sans text-xs sm:text-sm uppercase tracking-[0.3em] text-[#845400] font-extrabold mb-4 drop-shadow-[0_1px_6px_rgba(255,248,238,0.95)]">
             Five Loaves · Bread for All
           </p>
 
-          <p className="text-base sm:text-lg text-[#514536] max-w-2xl mx-auto leading-relaxed mb-4">
+          <p className="text-base sm:text-lg text-[#27180A] font-medium max-w-2xl mx-auto leading-relaxed mb-4 px-5 py-2 rounded-2xl bg-[#FFF8EE]/75 backdrop-blur-sm shadow-sm border border-[#E8D9C5]/60">
             Where restaurant owners, caterers, and families give away surplus food for free to children&apos;s shelters, old age homes, and people in need across Kerala.
           </p>
 
