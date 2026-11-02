@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import QuoteRotator from '../components/QuoteRotator';
+import SaintsRotator from '../components/SaintsRotator';
 import { useData } from '../context/DataContext';
 import { 
   HeartHandshake, 
@@ -100,6 +101,9 @@ export default function Home() {
 
         </div>
       </section>
+
+      {/* Saints on Sharing Food (PRD §8.1) */}
+      <SaintsRotator />
 
       {/* Impact Counters Section (PRD §8.1) */}
       <section className="py-16 bg-[#FFF8EE] border-y border-[#E8D9C5]">

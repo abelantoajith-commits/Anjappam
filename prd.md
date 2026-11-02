@@ -122,6 +122,13 @@ Tagline, links (Home, Donate, Receive), placeholder contact, food-safety disclai
 - Rotating **Bible quote** (see §10): changes automatically every ~8 seconds with a fade, shows verse and reference, dot indicators, pauses on hover.
 - Two buttons: **Donate Food** → `/donate`, **Receive Food** → `/receive`.
 
+**Saints on Sharing Food**
+- Rotating feature placed immediately after the hero block and before the Impact counters.
+- 5 Christian saints renowned for hospitality, charity, and feeding the poor (Mother Teresa, St. Anthony of Padua, St. Elizabeth of Hungary, St. Vincent de Paul, St. Nicholas).
+- Rotates automatically every 10s with crossfade (~600ms), previous/next arrow controls, dot indicators, pause on hover/focus, and prefers-reduced-motion support.
+- Renders entries according to kind: quotes with quotation marks and italic serif, "about" with author attribution, "teaching" and "tradition" with descriptive labels in regular serif.
+- Uses transparent cutout images with warm gold backdrop arches/glows, rendered with `object-contain`.
+
 **Scroll sections** (layout inspired by feedingindia.org for structure only; do not copy content, branding or assets):
 1. **Impact counters** (animated on scroll): Meals shared, Active donors, Receiving institutions, Cities served. Placeholder numbers; optionally derive "Meals shared" from locally stored accepted donations plus a base number.
 2. **How it works** (4 steps): donor posts → receiver accepts → pickup arranged → food reaches those in need.
