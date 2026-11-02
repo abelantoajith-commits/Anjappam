@@ -203,3 +203,4 @@ export const ratingsService = {
     return ratings[index];
   },
 };
+
