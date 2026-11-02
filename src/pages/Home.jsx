@@ -61,10 +61,6 @@ export default function Home() {
             Five Loaves · Bread for All
           </p>
 
-          <p className="text-base sm:text-lg text-[#27180A] font-medium max-w-2xl mx-auto leading-relaxed mb-4 px-5 py-2 rounded-2xl bg-[#FFF8EE]/75 backdrop-blur-sm shadow-sm border border-[#E8D9C5]/60">
-            Where restaurant owners, caterers, and families give away surplus food for free to children&apos;s shelters, old age homes, and people in need across Kerala.
-          </p>
-
           {/* Rotating Bible Quote (PRD §8.1 & §10) */}
           <QuoteRotator />
 
@@ -75,7 +71,7 @@ export default function Home() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#C98A2B] text-white hover:bg-[#845400] font-sans font-bold text-base shadow-[0_8px_24px_rgba(201,138,43,0.35)] hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <HandPlatter className="w-5 h-5" />
-              <span>Donate Food</span>
+              <span>I Have Food</span>
             </Link>
 
             <Link
@@ -83,7 +79,7 @@ export default function Home() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#FFEADA] hover:bg-[#FFE3CD] text-[#3B2A1A] font-sans font-bold text-base border border-[#E8D9C5] shadow-sm hover:shadow-md transition-all transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <UtensilsCrossed className="w-5 h-5 text-[#5E7B3A]" />
-              <span>Receive Food</span>
+              <span>I Need Food</span>
             </Link>
           </div>
 
@@ -474,7 +470,7 @@ export default function Home() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#C98A2B] text-white hover:bg-[#845400] font-bold text-base shadow-md hover:shadow-xl transition-all"
             >
               <HandPlatter className="w-5 h-5" />
-              <span>Donate Food Now</span>
+              <span>I Have Food</span>
             </Link>
 
             <Link
@@ -482,7 +478,7 @@ export default function Home() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#5E7B3A] text-white hover:bg-[#4B6728] font-bold text-base shadow-md hover:shadow-xl transition-all"
             >
               <UtensilsCrossed className="w-5 h-5" />
-              <span>Receive Food</span>
+              <span>I Need Food</span>
             </Link>
           </div>
 
