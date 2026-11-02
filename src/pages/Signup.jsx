@@ -122,6 +122,19 @@ export default function Signup() {
         <div className="absolute -top-16 -left-16 w-56 h-56 rounded-full bg-[#C98A2B]/15 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full bg-[#5E7B3A]/15 blur-3xl pointer-events-none" />
 
+        {/* Centered Anjappam Logo and Wordmark above the Form Card */}
+        <div className="flex flex-col items-center justify-center mb-6 text-center">
+          <Link to="/" className="flex items-center gap-2 mb-1.5 group cursor-pointer focus:outline-none" aria-label="Anjappam Home">
+            <img src="/logo.svg" alt="Anjappam Emblem" className="w-10 h-10 rounded-full shadow-sm group-hover:scale-105 transition-transform" />
+            <span className="font-serif text-3xl font-bold tracking-tight text-[#3B2A1A] group-hover:text-[#845400] transition-colors">
+              ANJAPPAM
+            </span>
+          </Link>
+          <p className="text-[11px] uppercase tracking-widest text-[#845400] font-bold">
+            Five Loaves · Bread for All
+          </p>
+        </div>
+
         {/* Back Link to Home */}
         <div className="mb-4">
           <Link
@@ -147,10 +160,6 @@ export default function Signup() {
 
           {/* Header Section: Title is Registration Form (PRD Override) */}
           <div className="flex flex-col items-center text-center mb-8">
-            <Link to="/" className="flex items-center gap-2 mb-2">
-              <img src="/logo.svg" alt="Anjappam Emblem" className="w-9 h-9 rounded-full shadow-sm" />
-              <span className="font-serif text-2xl font-bold tracking-tight text-[#3B2A1A]">ANJAPPAM</span>
-            </Link>
             <span className="text-[11px] uppercase tracking-widest text-[#845400] font-bold mb-1">
               Kerala Community Breadshare
             </span>

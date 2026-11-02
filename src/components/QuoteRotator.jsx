@@ -61,7 +61,7 @@ export default function QuoteRotator() {
         </div>
 
         {/* Carousel Dot Indicators */}
-        <div className="flex items-center gap-2 mt-4 pt-1">
+        <div className="flex items-center justify-center gap-2 mt-4 pt-1">
           {ROTATING_QUOTES.map((quote, idx) => (
             <button
               key={quote.id}

@@ -39,12 +39,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/donate" className="hover:text-[#845400] transition-colors">
-                  Donate Food (For Donors)
+                  I Have Food
                 </Link>
               </li>
               <li>
                 <Link to="/receive" className="hover:text-[#845400] transition-colors">
-                  Receive Food (Available Meals)
+                  I Need Food
                 </Link>
               </li>
               <li>

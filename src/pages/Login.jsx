@@ -90,8 +90,21 @@ export default function Login() {
         <div className="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-[#C98A2B]/20 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-[#5E7B3A]/20 blur-3xl pointer-events-none" />
 
+        {/* Centered Anjappam Logo and Wordmark above the Form Card */}
+        <div className="flex flex-col items-center justify-center mb-6 text-center">
+          <Link to="/" className="flex items-center gap-2 mb-1.5 group cursor-pointer focus:outline-none" aria-label="Anjappam Home">
+            <img src="/logo.svg" alt="Anjappam Emblem" className="w-10 h-10 rounded-full shadow-sm group-hover:scale-105 transition-transform" />
+            <span className="font-serif text-3xl font-bold tracking-tight text-[#3B2A1A] group-hover:text-[#845400] transition-colors">
+              ANJAPPAM
+            </span>
+          </Link>
+          <p className="text-[11px] uppercase tracking-widest text-[#845400] font-bold">
+            Five Loaves · Bread for All
+          </p>
+        </div>
+
         {/* Back Link to Home */}
-        <div className="mb-4">
+        <div className="mb-4 flex items-center justify-between">
           <Link
             to="/"
             className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#845400] hover:text-[#3B2A1A] transition-colors"
@@ -105,17 +118,8 @@ export default function Login() {
         <div className="relative bg-white shadow-xl rounded-3xl p-6 sm:p-8 border border-[#E8D9C5] text-[#3B2A1A]">
           
           <div className="flex flex-col items-center text-center mb-6">
-            <Link to="/" className="flex items-center gap-2 mb-2">
-              <img src="/logo.svg" alt="Anjappam Emblem" className="w-10 h-10 rounded-full shadow-sm" />
-              <span className="font-serif text-2xl font-bold tracking-tight text-[#3B2A1A]">ANJAPPAM</span>
-            </Link>
-            
-            <p className="text-[11px] uppercase tracking-widest text-[#845400] font-bold">
-              Five Loaves · Bread for All
-            </p>
-
             {/* Daily Bread Scripture Banner */}
-            <div className="my-4 p-3 bg-[#FFF8EE] rounded-2xl w-full border border-[#E8D9C5]">
+            <div className="mb-4 p-3 bg-[#FFF8EE] rounded-2xl w-full border border-[#E8D9C5]">
               <p className="font-serif italic text-sm text-[#845400]">
                 &ldquo;{LOGIN_BANNER_VERSE.verse}&rdquo;
               </p>

@@ -52,7 +52,7 @@ export default function Home() {
         <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#C98A2B]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-48 right-10 w-72 h-72 bg-[#5E7B3A]/10 rounded-full blur-2xl pointer-events-none" />
         
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center">
           
           {/* Subtle Kerala Sanctuary Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFEADA] text-[#845400] text-xs uppercase tracking-widest font-bold mb-6 border border-[#E8D9C5] shadow-sm">
@@ -61,12 +61,12 @@ export default function Home() {
           </div>
 
           {/* Large Title: ANJAPPAM */}
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#27180A] mb-2 drop-shadow-[0_2px_12px_rgba(255,248,238,0.9)]">
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#27180A] mb-2 text-center drop-shadow-[0_2px_12px_rgba(255,248,238,0.9)]">
             ANJAPPAM
           </h1>
 
           {/* Sacred Subtitle */}
-          <p className="font-sans text-xs sm:text-sm uppercase tracking-[0.3em] text-[#845400] font-extrabold mb-4 drop-shadow-[0_1px_6px_rgba(255,248,238,0.95)]">
+          <p className="font-sans text-xs sm:text-sm uppercase tracking-[0.3em] text-[#845400] font-extrabold mb-4 text-center drop-shadow-[0_1px_6px_rgba(255,248,238,0.95)]">
             Five Loaves · Bread for All
           </p>
 
@@ -74,7 +74,7 @@ export default function Home() {
           <QuoteRotator />
 
           {/* Two Large Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 w-full max-w-md">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 w-full max-w-md mx-auto text-center">
             <Link
               to="/donate"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#C98A2B] text-white hover:bg-[#845400] font-sans font-bold text-base shadow-[0_8px_24px_rgba(201,138,43,0.35)] hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0"
@@ -93,7 +93,7 @@ export default function Home() {
           </div>
 
           {/* Five Loaves Pips Indicator */}
-          <div className="flex items-center gap-2 mt-8 text-xs font-semibold text-[#837564] uppercase tracking-wider">
+          <div className="flex items-center justify-center gap-2 mt-8 text-xs font-semibold text-[#837564] uppercase tracking-wider text-center">
             <span>Consecrated Portions:</span>
             <div className="flex items-center gap-1 text-[#C98A2B]">
               <span className="w-2.5 h-2.5 rounded-full bg-[#C98A2B] shadow-sm"></span>
@@ -336,9 +336,9 @@ export default function Home() {
               </div>
               <Link
                 to="/donate"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#C98A2B] text-white hover:bg-[#845400] font-semibold text-sm transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#C98A2B] text-white hover:bg-[#845400] font-semibold text-sm shadow-sm hover:shadow-md transition-all"
               >
-                <span>Pledge Surplus Food</span>
+                <span>I Have Food</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -374,10 +374,10 @@ export default function Home() {
               </div>
               <Link
                 to="/receive"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#5E7B3A] text-white hover:bg-[#4B6728] font-semibold text-sm transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#FFEADA] hover:bg-[#FFE3CD] text-[#3B2A1A] border border-[#E8D9C5] font-semibold text-sm shadow-sm hover:shadow-md transition-all"
               >
-                <span>Browse Available Meals</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>I Need Food</span>
+                <ArrowRight className="w-4 h-4 text-[#5E7B3A]" />
               </Link>
             </div>
 
@@ -532,7 +532,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto">
             <Link
               to="/donate"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#C98A2B] text-white hover:bg-[#845400] font-bold text-base shadow-md hover:shadow-xl transition-all"
@@ -543,9 +543,9 @@ export default function Home() {
 
             <Link
               to="/receive"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#5E7B3A] text-white hover:bg-[#4B6728] font-bold text-base shadow-md hover:shadow-xl transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#FFEADA] hover:bg-[#FFE3CD] text-[#3B2A1A] border border-[#E8D9C5] font-bold text-base shadow-md hover:shadow-xl transition-all"
             >
-              <UtensilsCrossed className="w-5 h-5" />
+              <UtensilsCrossed className="w-5 h-5 text-[#5E7B3A]" />
               <span>I Need Food</span>
             </Link>
           </div>

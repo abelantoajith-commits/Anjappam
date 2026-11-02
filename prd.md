@@ -103,13 +103,15 @@ User type is chosen at sign-up and controls available actions (enforced in the U
 ## 7. Global Layout
 
 ### Navigation bar (all pages)
-- **Left:** `Requests` button.
-- **Center:** Anjappam logo/wordmark linking to Home.
-- **Right:** `Login` button (becomes the user's name with a `Logout` option when logged in).
-- Mobile: hamburger menu keeping Login and Requests accessible.
+- **3-Column Centering:** Exact horizontal centering of the Anjappam wordmark/logo using a 3-column layout (`grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]`) independent of the widths of left and right elements.
+- **Left:** `Requests` button (and desktop quick links "I Have Food" and "I Need Food").
+- **Center:** Anjappam logo/wordmark linking to Home, never wrapping onto two lines.
+- **Right:** `Login` button (becomes user account dropdown when logged in).
+- **Mobile (360px):** Wordmark remains locked in the exact horizontal center; "Requests" and "Login" collapse into compact icon buttons or hamburger menu.
+- **Login & Sign Up Pages:** Anjappam logo and wordmark are centered above the form card.
 
 ### Footer
-Tagline, links (Home, Donate, Receive), placeholder contact, food-safety disclaimer, "A Christian initiative" line, and a small "Demo version — data is stored in your browser" note.
+Tagline, links (Home, I Have Food, I Need Food, Requests, Registration Form), placeholder contact, food-safety disclaimer, "A Christian initiative" line, and a small "Demo version — data is stored in your browser" note.
 
 ---
 
@@ -118,9 +120,9 @@ Tagline, links (Home, Donate, Receive), placeholder contact, food-safety disclai
 ### 8.1 Home Page (`/`)
 
 **Hero**
-- Large title **Anjappam**.
-- Rotating **Bible quote** (see §10): changes automatically every ~8 seconds with a fade, shows verse and reference, dot indicators, pauses on hover.
-- Two buttons: **Donate Food** → `/donate`, **Receive Food** → `/receive`.
+- Large title **ANJAPPAM** (centered text and container).
+- Rotating **Bible quote** (see §10): centered verse, reference, and carousel dot indicators; changes automatically every ~8 seconds with a fade, pauses on hover.
+- Two buttons (centered horizontally): **I Have Food** (gold filled pill) → `/donate`, **I Need Food** (outlined pill) → `/receive`.
 
 **Saints on Sharing Food**
 - Rotating feature placed immediately after the hero block and before the Impact counters.
@@ -132,10 +134,10 @@ Tagline, links (Home, Donate, Receive), placeholder contact, food-safety disclai
 **Scroll sections** (layout inspired by feedingindia.org for structure only; do not copy content, branding or assets):
 1. **Impact counters** (animated on scroll): Meals shared, Active donors, Receiving institutions, Cities served. Placeholder numbers; optionally derive "Meals shared" from locally stored accepted donations plus a base number.
 2. **How it works** (4 steps): donor posts → receiver accepts → pickup arranged → food reaches those in need.
-3. **Who can give / who can receive** (two cards).
+3. **Who can give / who can receive** (two cards): action buttons labeled **I Have Food** (gold filled pill) and **I Need Food** (outlined pill).
 4. **Why food waste matters** (short paragraph + 3 highlights).
 5. **Stories / testimonials** (placeholder cards).
-6. **Closing emphasis section, "Sharing food is an act of kindness":** feature **Matthew 25:40** as a large pull-quote: *"Verily I say unto you, Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me."* Support with 2–3 paragraphs on dignity, community, Christ's call to serve, and turning waste into blessing. End with Donate Food / Receive Food buttons.
+6. **Closing emphasis section, "Sharing food is an act of kindness":** feature **Matthew 25:40** as a large pull-quote: *"Verily I say unto you, Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me."* Support with 2–3 paragraphs on dignity, community, Christ's call to serve, and turning waste into blessing. End with **I Have Food** / **I Need Food** buttons.
 
 ### 8.2 Donate Page (`/donate`)
 

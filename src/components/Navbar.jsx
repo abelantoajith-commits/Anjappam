@@ -2,19 +2,17 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { 
-  HeartHandshake, 
   User, 
   LogOut, 
   Menu, 
   X, 
   HandPlatter, 
   UtensilsCrossed, 
-  Sparkles,
   ClipboardList
 } from 'lucide-react';
 
 export default function Navbar() {
-  const { user, logout, isDonor, isReceiver } = useAuth();
+  const { user, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -33,84 +31,88 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#FFF8EE]/95 backdrop-blur-md border-b border-[#E8D9C5]/80 shadow-[0_2px_12px_rgba(59,42,26,0.04)] transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-20 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center">
         
-        {/* Left: Requests button (PRD §7 & Override) */}
-        <div className="flex items-center gap-3">
+        {/* Left Column: Requests button + Desktop Quick links (aligned left) */}
+        <div className="col-start-1 justify-self-start flex items-center gap-1.5 sm:gap-3 min-w-0">
           <Link
             to="/requests"
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full font-sans font-medium text-sm transition-all duration-200 ${
+            className={`inline-flex items-center gap-1.5 p-2 sm:px-4 sm:py-2 rounded-full font-sans font-medium text-xs sm:text-sm transition-all duration-200 shrink-0 ${
               location.pathname === '/requests'
                 ? 'bg-[#C98A2B] text-white shadow-sm'
                 : 'bg-[#FFEADA] text-[#3B2A1A] hover:bg-[#FFE3CD] active:scale-95'
             }`}
             aria-label="View food requests"
+            title="Requests"
           >
-            <ClipboardList className="w-4 h-4 text-[#845400]" />
-            <span className="font-semibold">Requests</span>
+            <ClipboardList className="w-4 h-4 text-[#845400] shrink-0" />
+            <span className="font-semibold hidden sm:inline">Requests</span>
           </Link>
 
           {/* Quick links on medium+ screens */}
-          <nav className="hidden md:flex items-center gap-1 pl-2">
+          <nav className="hidden md:flex items-center gap-1 pl-1">
             <Link
               to="/donate"
-              className={`px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors ${
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors whitespace-nowrap ${
                 location.pathname === '/donate'
                   ? 'text-[#845400] bg-[#FFE3CD]'
                   : 'text-[#6B5440] hover:text-[#3B2A1A] hover:bg-[#FFEADA]/60'
               }`}
             >
-              Donate Food
+              I Have Food
             </Link>
             <Link
               to="/receive"
-              className={`px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors ${
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors whitespace-nowrap ${
                 location.pathname === '/receive'
                   ? 'text-[#845400] bg-[#FFE3CD]'
                   : 'text-[#6B5440] hover:text-[#3B2A1A] hover:bg-[#FFEADA]/60'
               }`}
             >
-              Receive Food
+              I Need Food
             </Link>
           </nav>
         </div>
 
-        {/* Center: Anjappam Logo and Wordmark linking to Home (PRD §7) */}
-        <Link 
-          to="/" 
-          className="flex flex-col items-center group cursor-pointer focus:outline-none"
-          aria-label="Anjappam Home"
-        >
-          <div className="flex items-center gap-2">
-            <img 
-              src="/logo.svg" 
-              alt="Anjappam Five Loaves Emblem" 
-              className="w-8 h-8 rounded-full shadow-sm group-hover:scale-105 transition-transform" 
-            />
-            <span className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[#3B2A1A] group-hover:text-[#845400] transition-colors">
-              ANJAPPAM
+        {/* Center Column: Exactly Centered Anjappam Logo and Wordmark */}
+        <div className="col-start-2 justify-self-center px-1">
+          <Link 
+            to="/" 
+            className="flex flex-col items-center group cursor-pointer focus:outline-none whitespace-nowrap"
+            aria-label="Anjappam Home"
+          >
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <img 
+                src="/logo.svg" 
+                alt="Anjappam Five Loaves Emblem" 
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full shadow-sm group-hover:scale-105 transition-transform shrink-0" 
+              />
+              <span className="font-serif text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-[#3B2A1A] group-hover:text-[#845400] transition-colors whitespace-nowrap select-none">
+                ANJAPPAM
+              </span>
+            </div>
+            <span className="text-[9px] sm:text-[10px] tracking-[0.25em] uppercase text-[#C98A2B] font-semibold hidden sm:block -mt-0.5 whitespace-nowrap">
+              Five Loaves · Bread for All
             </span>
-          </div>
-          <span className="text-[10px] tracking-[0.25em] uppercase text-[#C98A2B] font-semibold hidden sm:block -mt-0.5">
-            Five Loaves · Bread for All
-          </span>
-        </Link>
+          </Link>
+        </div>
 
-        {/* Right: Login button or User Account with Logout */}
-        <div className="flex items-center gap-2">
+        {/* Right Column: Login button or User Account + Mobile menu toggle (aligned right) */}
+        <div className="col-start-3 justify-self-end flex items-center justify-end gap-1.5 sm:gap-2 min-w-0">
           {user ? (
             <div className="relative">
               <button
                 onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                className="inline-flex items-center gap-2 pl-3 pr-4 py-1.5 rounded-full bg-[#FFEADA] text-[#3B2A1A] hover:bg-[#FFE3CD] transition-all text-sm font-medium border border-[#E8D9C5] focus:outline-none focus:ring-2 focus:ring-[#C98A2B]"
+                className="inline-flex items-center gap-1.5 sm:gap-2 p-1.5 sm:pl-3 sm:pr-4 sm:py-1.5 rounded-full bg-[#FFEADA] text-[#3B2A1A] hover:bg-[#FFE3CD] transition-all text-sm font-medium border border-[#E8D9C5] focus:outline-none focus:ring-2 focus:ring-[#C98A2B]"
                 aria-expanded={userDropdownOpen}
                 aria-haspopup="true"
+                title={user.institutionName || user.username}
               >
-                <div className="w-7 h-7 rounded-full bg-[#C98A2B] text-white flex items-center justify-center font-bold text-xs uppercase shadow-sm">
+                <div className="w-7 h-7 rounded-full bg-[#C98A2B] text-white flex items-center justify-center font-bold text-xs uppercase shadow-sm shrink-0">
                   {user.institutionName ? user.institutionName[0] : user.username[0]}
                 </div>
-                <div className="flex flex-col text-left">
-                  <span className="text-xs font-bold leading-tight truncate max-w-[110px] sm:max-w-[140px]">
+                <div className="hidden sm:flex flex-col text-left">
+                  <span className="text-xs font-bold leading-tight truncate max-w-[100px] md:max-w-[140px]">
                     {user.institutionName || user.username}
                   </span>
                   <span className="text-[10px] text-[#5E7B3A] font-semibold uppercase leading-tight tracking-wider">
@@ -174,21 +176,22 @@ export default function Navbar() {
           ) : (
             <Link
               to="/login"
-              className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-[#845400] text-white hover:bg-[#643F00] font-sans font-medium text-sm shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+              className="inline-flex items-center gap-1.5 p-2 sm:px-5 sm:py-2 rounded-full bg-[#845400] text-white hover:bg-[#643F00] font-sans font-medium text-xs sm:text-sm shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0 shrink-0"
               aria-label="Log in to Anjappam"
+              title="Login"
             >
-              <User className="w-4 h-4" />
-              <span>Login</span>
+              <User className="w-4 h-4 shrink-0" />
+              <span className="hidden sm:inline">Login</span>
             </Link>
           )}
 
           {/* Mobile hamburger button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-full text-[#3B2A1A] hover:bg-[#FFEADA] focus:outline-none ml-1"
+            className="md:hidden p-2 rounded-full text-[#3B2A1A] hover:bg-[#FFEADA] focus:outline-none shrink-0"
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
           </button>
         </div>
       </div>
@@ -200,18 +203,18 @@ export default function Navbar() {
             <Link
               to="/donate"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 p-3 rounded-2xl bg-[#FFEADA] text-[#3B2A1A] text-sm font-semibold shadow-sm"
+              className="flex items-center justify-center gap-2 p-3 rounded-2xl bg-[#C98A2B] text-white text-sm font-semibold shadow-sm"
             >
-              <HandPlatter className="w-4 h-4 text-[#C98A2B]" />
-              Donate Food
+              <HandPlatter className="w-4 h-4" />
+              I Have Food
             </Link>
             <Link
               to="/receive"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 p-3 rounded-2xl bg-[#FFEADA] text-[#3B2A1A] text-sm font-semibold shadow-sm"
+              className="flex items-center justify-center gap-2 p-3 rounded-2xl bg-[#FFEADA] text-[#3B2A1A] border border-[#E8D9C5] text-sm font-semibold shadow-sm"
             >
               <UtensilsCrossed className="w-4 h-4 text-[#5E7B3A]" />
-              Receive Food
+              I Need Food
             </Link>
           </div>
 
@@ -230,7 +233,7 @@ export default function Navbar() {
           {user ? (
             <div className="pt-2 border-t border-[#E8D9C5] flex items-center justify-between">
               <div className="text-xs text-[#514536]">
-                Logged in as <strong className="text-[#3B2A1A]">{user.username}</strong> ({user.userType})
+                Logged in as <strong className="text-[#3B2A1A]">{user.institutionName || user.username}</strong> ({user.userType === 'donor' ? 'Donor' : 'Receiver'})
               </div>
               <button
                 onClick={handleLogout}
@@ -262,4 +265,3 @@ export default function Navbar() {
     </header>
   );
 }
-
