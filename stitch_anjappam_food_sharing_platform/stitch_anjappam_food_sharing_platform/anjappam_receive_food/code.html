@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#cceea0", "primary-container": "#c98a2b", "secondary-fixed-dim": "#ffb3b0", "secondary": "#984543", "on-background": "#27180a", "on-primary": "#ffffff", "on-secondary-fixed": "#3f0207", "on-error-container": "#93000a", "primary-fixed": "#ffddb5", "background": "#fff8f5", "surface-dim": "#f2d5bd", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#643f00", "outline": "#837564", "surface-container-low": "#fff1e8", "surface-bright": "#fff8f5", "on-secondary-container": "#782c2c", "surface-variant": "#fbddc5", "primary-fixed-dim": "#ffb958", "tertiary-container": "#81a05b", "error": "#ba1a1a", "primary": "#845400", "on-tertiary-fixed": "#102000", "tertiary-fixed-dim": "#b0d186", "inverse-on-surface": "#ffeee1", "on-primary-fixed": "#2a1800", "surface-tint": "#845400", "secondary-container": "#fe9693", "secondary-fixed": "#ffdad8", "inverse-primary": "#ffb958", "on-error": "#ffffff", "surface-container-highest": "#fbddc5", "on-tertiary-fixed-variant": "#344e12", "inverse-surface": "#3e2d1d", "on-secondary-fixed-variant": "#7a2e2e", "surface-container-lowest": "#ffffff", "surface-container-high": "#ffe3cd", "error-container": "#ffdad6", "outline-variant": "#d6c4b1", "on-tertiary": "#ffffff", "surface-container": "#ffeada", "on-tertiary-container": "#1e3500", "on-primary-container": "#442900", "on-surface-variant": "#514536", "on-surface": "#27180a", "surface": "#fff8f5", "tertiary": "#4b6728" }, "borderRadius": { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "margin-tablet": "2rem", "space-xs": "0.25rem", "gutter": "1.25rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "margin": "1rem", "margin-desktop": "3rem", "gutter-desktop": "2rem", "space-xl": "2.5rem" }, "fontFamily": { "body-sm": [ "Inter" ], "headline-lg-mobile": [ "Playfair Display" ], "body-md": [ "Inter" ], "label-sm": [ "Inter" ], "headline-md": [ "Playfair Display" ], "title-md": [ "Inter" ], "label-md": [ "Inter" ], "headline-sm": [ "Playfair Display" ], "body-lg": [ "Inter" ], "headline-lg": [ "Playfair Display" ], "display-lg-mobile": [ "Playfair Display" ], "display-lg": [ "Playfair Display" ], "label-lg": [ "Inter" ] }, "fontSize": { "body-sm": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "headline-lg-mobile": [ "26px", { "lineHeight": "34px", "fontWeight": "600" } ], "body-md": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "label-sm": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "headline-md": [ "24px", { "lineHeight": "32px", "fontWeight": "500" } ], "title-md": [ "18px", { "lineHeight": "26px", "fontWeight": "600" } ], "label-md": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-sm": [ "20px", { "lineHeight": "28px", "fontWeight": "500" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "display-lg-mobile": [ "34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "display-lg": [ "48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "label-lg": [ "15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(59,42,26,0.05)]"><div class="h-20 max-w-[1200px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between"><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-space-xs bg-surface-container hover:bg-surface-container-high text-on-surface hover:text-on-surface py-space-xs px-space-md rounded-full transition-colors" data-path="food-requests" href="#"><span class="font-label-md text-label-md">Requests</span><span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface"></span></a></div><div class="flex items-center justify-center"><a class="flex items-center gap-space-xs" data-path="home" href="#"><img alt="Anjappam Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W0Zysugnvo9h3qBjdo57uWuAvKfAxBCJDKPCt9XNj-M3m42-rrk4DFFtMNr5plG-kEBvkIihsgjd2OcyegXM0ow-q2cPWWwtNgLnB03etjqJeeIb2x8Dcr3l7R5kKXW6eLM-9Q9pvgbssvzcC20MRjK1fP0RVyc8efXm3I_yUbwp1_At9_vBBH4KqeXPLzf65KI8xzs6ExrXuDQt_JGvyLWze63pzLtcyZAQ1PoW1T"/><span class="font-headline-sm text-headline-sm text-primary">Anjappam</span></a></div><div class="flex items-center gap-space-lg"><nav class="hidden lg:flex items-center gap-space-md" data-active-classes="bg-surface-container-high text-on-surface font-bold"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-xs px-space-md rounded-full transition-colors" data-path="home" href="#">Home</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-xs px-space-md rounded-full transition-colors" data-path="donate-food" href="#">Donate</a><a aria-current="page" class="py-space-xs px-space-md rounded-full transition-colors bg-surface-container-high text-on-surface font-bold" data-path="receive-food" href="#">Receive</a></nav><div class="flex items-center gap-space-sm"><a class="inline-flex items-center justify-center font-label-lg text-label-lg bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container px-space-lg py-space-sm rounded-full transition-colors shadow-[0_4px_20px_-2px_rgba(59,42,26,0.06)]" data-path="login" href="#">Login / Sign Up</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- Subtle decorative ambient background glows -->
+<div class="relative w-full max-w-[1200px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl">
+<div class="absolute top-10 left-1/4 w-96 h-96 bg-primary-fixed/40 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-80 right-10 w-80 h-80 bg-tertiary-fixed/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Editorial Header Section -->
+<header class="max-w-3xl mb-space-xl">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 bg-surface-container rounded-full mb-space-sm shadow-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">volunteer_activism</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">Grace &amp; Sustenance for Kerala</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg md:text-display-lg md:font-display-lg text-on-surface text-balance">
+        Food Available Near You
+      </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-sm max-w-2xl text-balance">
+        Claim fresh, prepared meals shared by local restaurants, caterers, and caring neighbors across Kerala. Receive with honor and reverence.
+      </p>
+</header>
+<!-- Top Action & Search/Filter Bar Container -->
+<div class="bg-surface-container-low rounded-xl p-space-md md:p-space-lg mb-space-xl shadow-sm">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md mb-space-md">
+<!-- Live Search Field -->
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md pl-11 pr-space-md py-space-sm rounded-full placeholder:text-outline focus:outline-none shadow-sm transition-all focus:bg-surface-container-lowest" id="food-search" placeholder="Search biriyani, rice, bread, sadya..." type="text"/>
+</div>
+<!-- Filters & Request Trigger -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- District Selector -->
+<div class="relative flex-1 sm:flex-initial">
+<select class="w-full appearance-none bg-surface-container-lowest text-on-surface font-label-lg text-label-lg pl-space-md pr-10 py-space-sm rounded-full shadow-sm focus:outline-none cursor-pointer" id="district-filter">
+<option value="all">All Kerala</option>
+<option value="kochi">Kochi / Ernakulam</option>
+<option value="thrissur">Thrissur</option>
+<option value="kozhikode">Kozhikode</option>
+<option value="kottayam">Kottayam</option>
+<option value="trivandrum">Trivandrum</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-1/2 -translate-y-1/2 pointer-events-none text-outline text-[18px]">expand_more</span>
+</div>
+<!-- Urgency Selector -->
+<div class="relative flex-1 sm:flex-initial">
+<select class="w-full appearance-none bg-surface-container-lowest text-on-surface font-label-lg text-label-lg pl-space-md pr-10 py-space-sm rounded-full shadow-sm focus:outline-none cursor-pointer" id="urgency-filter">
+<option value="all">Any Urgency</option>
+<option value="today">Available Today</option>
+<option value="immediate">Immediate Pickup</option>
+<option value="evening">Evening Sharing</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-1/2 -translate-y-1/2 pointer-events-none text-outline text-[18px]">schedule</span>
+</div>
+<!-- Direct Request Trigger Button -->
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs bg-primary-container text-on-primary hover:bg-primary font-label-lg text-label-lg px-space-lg py-space-sm rounded-full shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0" id="open-request-modal-btn">
+<span class="material-symbols-outlined text-[18px]">add_task</span>
+<span>Request Food</span>
+</button>
+</div>
+</div>
+<!-- Quick Toggles / Micro Breadcrumb Filter Pills -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="text-outline uppercase tracking-wider shrink-0 mr-space-xs">Pledged Meals:</span>
+<button class="bg-surface-container-highest px-space-md py-1 rounded-full text-on-surface shrink-0 hover:bg-surface-container">Hot Meals (210+)</button>
+<button class="bg-surface-container-highest px-space-md py-1 rounded-full text-on-surface shrink-0 hover:bg-surface-container">Bakery &amp; Breads (85)</button>
+<button class="bg-surface-container-highest px-space-md py-1 rounded-full text-on-surface shrink-0 hover:bg-surface-container">Vegetarian Curries</button>
+<button class="ml-auto inline-flex items-center gap-1 text-primary hover:underline shrink-0" id="toggle-empty-view-btn">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Simulate No Food State</span>
+</button>
+</div>
+</div>
+<!-- Active Donation Listings: Vertical Capsule Stack -->
+<section class="space-y-space-md transition-opacity duration-300" id="listings-container">
+<!-- Card 1: Thalassery Biriyani -->
+<article class="food-card group relative bg-surface-container-lowest hover:bg-surface-container-low rounded-xl p-space-md md:p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md" data-district="kochi" data-urgency="immediate today">
+<div class="flex items-start md:items-center gap-space-md">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Steaming authentic Malabar Thalassery Biriyani prepared in traditional copper degh with fragrant kaima rice and fried shallots, warm rustic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxCc2_zw5585F0Ft1zzArhc2L4KHl5W6u_5qH2_1rJUEvagNO8bQ7CSG8gF4FeEFTrXiokW-4H-RgsLKGrATl1V6-f1mkEjEEPUXqqr9VoPaqoUV-jhHOCsNhc5vwZCURvwFp8YNomP0Azpyl0MLnw4S3gEVJoVw7L-O8pit_NEO4-IimUnUe68ujLVZk9juEZY8GgKxbexg7BRipmjklBxOfEo47NwYBXnQZ66NDn"/>
+</div>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                Available Now
+              </span>
+<span class="font-label-sm text-label-sm text-primary bg-primary-fixed px-space-sm py-0.5 rounded-full">Hot Meal</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+              Thalassery Biriyani · 50 plates
+            </h2>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-space-md font-body-sm text-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">schedule</span>
+                Pickup: Today by 3:30 PM
+              </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+                Edappally, Kochi
+              </span>
+<span class="text-outline text-[12px]">Shared by Malabar Pearl Restaurant</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 pt-space-xs md:pt-0">
+<div class="hidden sm:flex flex-col items-end text-right">
+<span class="font-label-sm text-label-sm text-outline">Loaves Shared</span>
+<div class="flex gap-0.5 mt-0.5 text-primary-container" title="4 out of 5 portion blocks available">
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px] opacity-25">bakery_dining</span>
+</div>
+</div>
+<button class="accept-btn inline-flex items-center justify-center gap-1 bg-tertiary text-on-tertiary hover:bg-tertiary-container font-label-lg text-label-lg px-space-lg py-space-sm rounded-full transition-all shadow-sm hover:shadow" data-food="Thalassery Biriyani (50 plates)">
+<span>Accept</span>
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Kerala Rice & Sambar Curry -->
+<article class="food-card group relative bg-surface-container-lowest hover:bg-surface-container-low rounded-xl p-space-md md:p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md" data-district="thrissur" data-urgency="immediate today">
+<div class="flex items-start md:items-center gap-space-md">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Traditional boiled Kerala red matta rice in large earthen pot served with thick aromatic vegetable sambar and drumsticks in a South Indian monastery kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhmk13io9TzGLT3x1To9TfWg9-X30DbH8jiicoUg2CssVHG4Tni-JFQedfTrX9nFTkGuNk_foi3NdqV7bOmSuXsWzResC3d0mcC_7fU1zR35Pf7pzefuprzfxRUNOo8Hl3z5u8JSaiKtAoFFPdBbaJ9qy-aB1g7NFdNnpXqPuIS4j7AS51IA4X7tCKltG8INmAIFA9mBsL7FhYEFifw3hJiKCjGxKqrD2uKmFSCfNX"/>
+</div>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                Available Now
+              </span>
+<span class="font-label-sm text-label-sm text-primary-container bg-surface-container px-space-sm py-0.5 rounded-full">Community Kitchen</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+              Kerala Rice &amp; Sambar Curry · 80 plates
+            </h2>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-space-md font-body-sm text-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">schedule</span>
+                Pickup: Today by 2:00 PM
+              </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+                Round North, Thrissur
+              </span>
+<span class="text-outline text-[12px]">Shared by St. Thomas Community Hall</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 pt-space-xs md:pt-0">
+<div class="hidden sm:flex flex-col items-end text-right">
+<span class="font-label-sm text-label-sm text-outline">Loaves Shared</span>
+<div class="flex gap-0.5 mt-0.5 text-primary-container">
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+</div>
+</div>
+<button class="accept-btn inline-flex items-center justify-center gap-1 bg-tertiary text-on-tertiary hover:bg-tertiary-container font-label-lg text-label-lg px-space-lg py-space-sm rounded-full transition-all shadow-sm hover:shadow" data-food="Kerala Rice &amp; Sambar Curry (80 plates)">
+<span>Accept</span>
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Hot Chapati & Mixed Veg Korma -->
+<article class="food-card group relative bg-surface-container-lowest hover:bg-surface-container-low rounded-xl p-space-md md:p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md" data-district="kochi" data-urgency="evening today">
+<div class="flex items-start md:items-center gap-space-md">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Neatly stacked soft warm whole wheat chapatis wrapped carefully in paper food packaging next to stainless containers of vegetable coconut korma" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_GFFe6jTcFTr9VWyORMMDa8N56mIjIbAIkQJ1Y9Y7XjXRt6scmrBWmdM2FcZ7_U4we0Lh7jcDv_kxjIxBa8hi34SwCehlrrImRZmspGyFm8eA8P7ddLDvFKV3rZOyHN8fOiXsLBIfJFwCARg6wJIRQBh0WB2mFJSEtcJ4sQL3zsnIDb_Mc05ugTD13lNceiVzNMbKxnjewxStii5kOjMltTGuIJ7-VNxrwYXwsg3L"/>
+</div>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary bg-primary-fixed px-space-sm py-0.5 rounded-full">Evening Sharing</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-0.5 rounded-full">Packed Fresh</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+              Hot Chapati &amp; Mixed Veg Korma · 120 packets
+            </h2>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-space-md font-body-sm text-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">schedule</span>
+                Pickup: Today by 8:00 PM
+              </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+                MG Road, Ernakulam
+              </span>
+<span class="text-outline text-[12px]">Shared by Woodlands Caterers</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 pt-space-xs md:pt-0">
+<div class="hidden sm:flex flex-col items-end text-right">
+<span class="font-label-sm text-label-sm text-outline">Loaves Shared</span>
+<div class="flex gap-0.5 mt-0.5 text-primary-container">
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px] opacity-25">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px] opacity-25">bakery_dining</span>
+</div>
+</div>
+<button class="accept-btn inline-flex items-center justify-center gap-1 bg-tertiary text-on-tertiary hover:bg-tertiary-container font-label-lg text-label-lg px-space-lg py-space-sm rounded-full transition-all shadow-sm hover:shadow" data-food="Hot Chapati &amp; Mixed Veg Korma (120 packets)">
+<span>Accept</span>
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Fresh Artisan Bread & Buns -->
+<article class="food-card group relative bg-surface-container-lowest hover:bg-surface-container-low rounded-xl p-space-md md:p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md" data-district="kottayam" data-urgency="evening today">
+<div class="flex items-start md:items-center gap-space-md">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Rustic freshly baked golden bread loaves, soft milk buns, and crusty baguettes resting on wooden kitchen baker paddles under natural warm Kerala sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0e7FrEhThj7_Eyvrvs4n6Em8f3yGMGwTR4cC7ls1k5i38LmHCOBssPN9dudQz_vkoUiLY_cFei-Cu1wjckZm3XvGLeS4qqz21JxX771zIcn4Qe_XJrNBwWtvxxcugRxN1Ch-AF_6HbbOCxQ5MeONV37PCZCbg4YEFKPD7Jv_O5SZLZaxBAbqYdpM4RwCeWdkMVYoedJCQFSuAZtz5iDxRELgvZnlNtRQLnRgopfzY"/>
+</div>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary bg-primary-fixed px-space-sm py-0.5 rounded-full">Bakery Surplus</span>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-fixed px-space-sm py-0.5 rounded-full">Vegetarian</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+              Fresh Artisan Bread &amp; Buns · 40 loaves
+            </h2>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-space-md font-body-sm text-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">schedule</span>
+                Pickup: Today by 6:00 PM
+              </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+                Baker Junction, Kottayam
+              </span>
+<span class="text-outline text-[12px]">Shared by Grace Oven Bakery</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 pt-space-xs md:pt-0">
+<div class="hidden sm:flex flex-col items-end text-right">
+<span class="font-label-sm text-label-sm text-outline">Loaves Shared</span>
+<div class="flex gap-0.5 mt-0.5 text-primary-container">
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+</div>
+</div>
+<button class="accept-btn inline-flex items-center justify-center gap-1 bg-tertiary text-on-tertiary hover:bg-tertiary-container font-label-lg text-label-lg px-space-lg py-space-sm rounded-full transition-all shadow-sm hover:shadow" data-food="Fresh Artisan Bread &amp; Buns (40 loaves)">
+<span>Accept</span>
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+</div>
+</article>
+<!-- Card 5: Vegetable Fried Rice & Manchurian -->
+<article class="food-card group relative bg-surface-container-lowest hover:bg-surface-container-low rounded-xl p-space-md md:p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md" data-district="kozhikode" data-urgency="today">
+<div class="flex items-start md:items-center gap-space-md">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Prepared vegetable fried rice with wok tossed vegetables and rich vegetable manchurian gravy in catering trays, fresh and steaming hot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJq-xkijwrvWH4s6pQUGnWNScuNPDKd9eWed3qW8mFMtKJl2IGBVDsyKg27bMbdsEEqex-7jNAIlyxVoojAGUtwPhPKwuOKq6Qnwm0Zp2B-zF_tlc7sMaK7OtlSKCLjn3d5pXtWnJGn7TZQF3JuMwDQPLomHryIvaRq6ilcSQrmQx1JKPI773KqXfwaL9QaufzCxRmuB3hn9hU9p7FLu7O572quwJHmjxV_-x_h-CX"/>
+</div>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary bg-primary-fixed px-space-sm py-0.5 rounded-full">Wedding Surplus</span>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary-fixed px-space-sm py-0.5 rounded-full">Hygienic Sealed</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+              Vegetable Fried Rice &amp; Manchurian · 35 plates
+            </h2>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-space-md font-body-sm text-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">schedule</span>
+                Pickup: Today by 4:00 PM
+              </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+                Mananchira, Kozhikode
+              </span>
+<span class="text-outline text-[12px]">Shared by Calicut Royal Convention</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 pt-space-xs md:pt-0">
+<div class="hidden sm:flex flex-col items-end text-right">
+<span class="font-label-sm text-label-sm text-outline">Loaves Shared</span>
+<div class="flex gap-0.5 mt-0.5 text-primary-container">
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px] opacity-25">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px] opacity-25">bakery_dining</span>
+</div>
+</div>
+<button class="accept-btn inline-flex items-center justify-center gap-1 bg-tertiary text-on-tertiary hover:bg-tertiary-container font-label-lg text-label-lg px-space-lg py-space-sm rounded-full transition-all shadow-sm hover:shadow" data-food="Vegetable Fried Rice &amp; Manchurian (35 plates)">
+<span>Accept</span>
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+</div>
+</article>
+<!-- Card 6: Authentic Kerala Sambar & Aviyal -->
+<article class="food-card group relative bg-surface-container-lowest hover:bg-surface-container-low rounded-xl p-space-md md:p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md" data-district="trivandrum" data-urgency="today">
+<div class="flex items-start md:items-center gap-space-md">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Traditional Kerala feast curries including thick coconut aviyal and spicy drumstick sambar held in stainless food distribution dispensers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEvAReIL7wl001NEGhxUH1yRp6DgF2yX_Tnk3aLSalhyD5nDfTtVNLUz4uqfLBY4hNb1vZpC6vit9pJhLjqk0p3kXoblSddpphR930RtEI9EtSWzzOEV1vOHF9_hk6cCa9hFtwE2OwQZZhbEWwCZoDo-1UmPuCv_wvARYdQy8Z7bq2k18ZYNKLwZ42G9-2_Qg8Z9fCkYb8s7dd-wgP-oDfZ2XFRHM1HsBa0LnHJK5w"/>
+</div>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary bg-primary-fixed px-space-sm py-0.5 rounded-full">Bulk Pots</span>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary-fixed px-space-sm py-0.5 rounded-full">Vegetarian Sadya</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+              Authentic Kerala Sambar &amp; Aviyal · 20 Litres
+            </h2>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-space-md font-body-sm text-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">schedule</span>
+                Pickup: Today by 5:00 PM
+              </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+                Palayam, Thiruvananthapuram
+              </span>
+<span class="text-outline text-[12px]">Shared by Palayam Parish Feast Kitchen</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 pt-space-xs md:pt-0">
+<div class="hidden sm:flex flex-col items-end text-right">
+<span class="font-label-sm text-label-sm text-outline">Loaves Shared</span>
+<div class="flex gap-0.5 mt-0.5 text-primary-container">
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+<span class="material-symbols-outlined text-[16px] opacity-25">bakery_dining</span>
+</div>
+</div>
+<button class="accept-btn inline-flex items-center justify-center gap-1 bg-tertiary text-on-tertiary hover:bg-tertiary-container font-label-lg text-label-lg px-space-lg py-space-sm rounded-full transition-all shadow-sm hover:shadow" data-food="Authentic Kerala Sambar &amp; Aviyal (20 Litres)">
+<span>Accept</span>
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Empty State Design Section (Hidden by default, toggleable via JavaScript) -->
+<div class="hidden my-space-lg text-center bg-surface-container-low rounded-xl p-space-xl shadow-sm" id="empty-state-card">
+<div class="max-w-md mx-auto flex flex-col items-center">
+<!-- Hand-drawn motif vector: Empty woven basket / bread plate -->
+<div class="w-24 h-24 rounded-full bg-surface-container flex items-center justify-center mb-space-md shadow-sm">
+<svg class="w-14 h-14 text-outline" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 64 64">
+<!-- Woven basket motif with five grain markers -->
+<path class="fill-surface-variant/30" d="M12 28 C12 46, 20 54, 32 54 C44 54, 52 46, 52 28 Z"></path>
+<path d="M8 28 L56 28"></path>
+<path d="M22 28 C22 16, 42 16, 42 28"></path>
+<path d="M18 36 L46 36" stroke-dasharray="2 3"></path>
+<path d="M22 44 L42 44" stroke-dasharray="2 3"></path>
+<!-- Gentle radiant star for grace -->
+<circle cx="32" cy="12" fill="currentColor" r="1.5"></circle>
+</svg>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">
+          No food listings in your area right now
+        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-lg">
+          Grace is preparing. You can place a food request so that nearby donors and kitchens receive an instant notification to share their surplus.
+        </p>
+<div class="flex flex-wrap items-center justify-center gap-space-sm">
+<button class="inline-flex items-center gap-space-xs bg-primary-container text-on-primary hover:bg-primary font-label-lg text-label-lg px-space-lg py-space-sm rounded-full transition-all shadow-sm" id="empty-post-request-btn">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Post a Food Request</span>
+</button>
+<button class="inline-flex items-center gap-space-xs bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg px-space-lg py-space-sm rounded-full transition-all" id="notify-me-btn">
+<span class="material-symbols-outlined text-[18px]">notifications</span>
+<span>Notify Me When Available</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Food Need Request Expandable Panel / Modal Card -->
+<div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-space-md" id="request-modal-overlay">
+<div class="relative w-full max-w-xl bg-surface-container-lowest rounded-xl shadow-xl p-space-lg md:p-space-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+<!-- Header -->
+<div class="flex items-start justify-between mb-space-lg">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Community Appeal</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-1">
+              Quick Food Need Request
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Submit your meal requirements. Local donors and Anjappam volunteers will be mobilized.
+            </p>
+</div>
+<button class="w-9 h-9 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" id="close-request-modal-btn">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Form -->
+<form class="space-y-space-md" id="food-request-form">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Food Item Needed</label>
+<input class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-full focus:outline-none focus:bg-surface-container shadow-sm" placeholder="e.g., Rice &amp; curry, meals, bread" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Number of People to Feed</label>
+<input class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-full focus:outline-none focus:bg-surface-container shadow-sm" min="1" placeholder="e.g., 25 people" required="" type="number"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Organization / Family Name</label>
+<input class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-full focus:outline-none focus:bg-surface-container shadow-sm" placeholder="e.g., Snehadham Orphanage" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Needed By Time</label>
+<input class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-full focus:outline-none focus:bg-surface-container shadow-sm" placeholder="e.g., Today 1:30 PM" required="" type="text"/>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Delivery / Pickup Location (Kerala)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline text-[18px]">location_on</span>
+<input class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-11 pr-space-md py-space-sm rounded-full focus:outline-none focus:bg-surface-container shadow-sm" placeholder="e.g., Near Medical College, Kozhikode" required="" type="text"/>
+</div>
+</div>
+<div class="pt-space-sm flex items-center justify-end gap-space-sm">
+<button class="font-label-lg text-label-lg px-space-lg py-space-sm rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" id="cancel-request-btn" type="button">
+              Cancel
+            </button>
+<button class="inline-flex items-center gap-space-xs font-label-lg text-label-lg px-space-xl py-space-sm rounded-full bg-primary-container hover:bg-primary text-on-primary transition-colors shadow-sm" type="submit">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Publish Request</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Confirmation Toast (Hidden by default) -->
+<div class="fixed bottom-6 right-6 z-50 bg-inverse-surface text-inverse-on-surface font-body-md text-body-md px-space-lg py-space-sm rounded-full shadow-lg flex items-center gap-space-sm transition-all transform translate-y-24 opacity-0 pointer-events-none" id="toast-message">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">check_circle</span>
+<span id="toast-text">Meal claim acknowledged with grace.</span>
+</div>
+</div>
+<script>
+    (function () {
+      const searchInput = document.getElementById('food-search');
+      const districtFilter = document.getElementById('district-filter');
+      const urgencyFilter = document.getElementById('urgency-filter');
+      const cards = document.querySelectorAll('.food-card');
+      const emptyStateCard = document.getElementById('empty-state-card');
+      const listingsContainer = document.getElementById('listings-container');
+      const toggleEmptyViewBtn = document.getElementById('toggle-empty-view-btn');
+
+      const modalOverlay = document.getElementById('request-modal-overlay');
+      const openModalBtn = document.getElementById('open-request-modal-btn');
+      const closeModalBtn = document.getElementById('close-request-modal-btn');
+      const cancelRequestBtn = document.getElementById('cancel-request-btn');
+      const foodRequestForm = document.getElementById('food-request-form');
+      const emptyPostRequestBtn = document.getElementById('empty-post-request-btn');
+      const notifyMeBtn = document.getElementById('notify-me-btn');
+
+      const toast = document.getElementById('toast-message');
+      const toastText = document.getElementById('toast-text');
+
+      function showToast(message) {
+        toastText.textContent = message;
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+        setTimeout(() => {
+          toast.classList.add('translate-y-24', 'opacity-0');
+          toast.classList.remove('translate-y-0', 'opacity-100');
+        }, 3500);
+      }
+
+      function filterCards() {
+        const query = (searchInput.value || '').toLowerCase().trim();
+        const selectedDistrict = districtFilter.value;
+        const selectedUrgency = urgencyFilter.value;
+
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const text = card.textContent.toLowerCase();
+          const cardDistrict = card.getAttribute('data-district') || '';
+          const cardUrgency = card.getAttribute('data-urgency') || '';
+
+          const matchesQuery = !query || text.includes(query);
+          const matchesDistrict = selectedDistrict === 'all' || cardDistrict.includes(selectedDistrict);
+          const matchesUrgency = selectedUrgency === 'all' || cardUrgency.includes(selectedUrgency);
+
+          if (matchesQuery && matchesDistrict && matchesUrgency) {
+            card.classList.remove('hidden');
+            card.classList.add('flex');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+            card.classList.remove('flex');
+          }
+        });
+
+        if (visibleCount === 0) {
+          emptyStateCard.classList.remove('hidden');
+        } else {
+          emptyStateCard.classList.add('hidden');
+        }
+      }
+
+      if (searchInput) searchInput.addEventListener('input', filterCards);
+      if (districtFilter) districtFilter.addEventListener('change', filterCards);
+      if (urgencyFilter) urgencyFilter.addEventListener('change', filterCards);
+
+      if (toggleEmptyViewBtn) {
+        toggleEmptyViewBtn.addEventListener('click', () => {
+          const isCurrentlyEmpty = !emptyStateCard.classList.contains('hidden');
+          if (isCurrentlyEmpty) {
+            filterCards();
+            toggleEmptyViewBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">visibility</span><span>Simulate No Food State</span>';
+          } else {
+            cards.forEach(c => {
+              c.classList.add('hidden');
+              c.classList.remove('flex');
+            });
+            emptyStateCard.classList.remove('hidden');
+            toggleEmptyViewBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">refresh</span><span>Restore Listings</span>';
+          }
+        });
+      }
+
+      // Modal Triggers
+      function openModal() {
+        modalOverlay.classList.remove('hidden');
+      }
+      function closeModal() {
+        modalOverlay.classList.add('hidden');
+      }
+
+      if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+      if (emptyPostRequestBtn) emptyPostRequestBtn.addEventListener('click', openModal);
+      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+      if (cancelRequestBtn) cancelRequestBtn.addEventListener('click', closeModal);
+
+      if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+          if (e.target === modalOverlay) closeModal();
+        });
+      }
+
+      if (foodRequestForm) {
+        foodRequestForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          closeModal();
+          foodRequestForm.reset();
+          showToast('Food request published. Donors in your district are notified.');
+        });
+      }
+
+      // Accept Buttons
+      document.querySelectorAll('.accept-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const foodName = btn.getAttribute('data-food') || 'meal';
+          btn.disabled = true;
+          btn.classList.add('opacity-60', 'pointer-events-none');
+          btn.innerHTML = '<span>Claimed</span><span class="material-symbols-outlined text-[18px]">verified</span>';
+          showToast(`Gracefully claimed: ${foodName}. Pickup details shared.`);
+        });
+      });
+
+      if (notifyMeBtn) {
+        notifyMeBtn.addEventListener('click', () => {
+          showToast('Notification enabled! We will ping you when surplus meals are shared.');
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-inverse-surface text-inverse-on-surface"><div class="max-w-[1200px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter lg:gap-gutter-desktop"><div class="lg:col-span-5 space-y-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md text-primary-fixed">Anjappam</span></div><p class="font-title-md text-title-md text-primary-fixed-dim">Five loaves · Bread for all</p><p class="font-body-sm text-body-sm text-outline-variant max-w-sm">“A Christian initiative to share excess food with dignity and reverence.”</p></div><div class="lg:col-span-3 space-y-space-sm"><h3 class="font-label-lg text-label-lg text-primary-fixed uppercase tracking-wider">Community</h3><ul class="space-y-space-xs"><li class="list-none"><a class="font-body-sm text-body-sm text-inverse-on-surface hover:text-primary-fixed transition-colors" data-path="home" href="#">Home</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-inverse-on-surface hover:text-primary-fixed transition-colors" data-path="donate-food" href="#">Donate</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-inverse-on-surface hover:text-primary-fixed transition-colors" data-path="receive-food" href="#">Receive</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-inverse-on-surface hover:text-primary-fixed transition-colors" data-path="food-requests" href="#">Food Requests</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-inverse-on-surface hover:text-primary-fixed transition-colors" data-path="about-us" href="#">About Us</a></li></ul></div><div class="lg:col-span-4 space-y-space-sm"><h3 class="font-label-lg text-label-lg text-primary-fixed uppercase tracking-wider">Contact Details</h3><div class="space-y-space-xs font-body-sm text-body-sm text-outline-variant"><p class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-[18px] text-primary-fixed-dim">location_on</span>Kochi, Kerala, India</p><p class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-primary-fixed-dim">mail</span>info@anjappam.org</p><p class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-primary-fixed-dim">call</span>+91 484 255 1947</p></div></div></div><div class="mt-space-xl pt-space-lg text-center font-body-sm text-body-sm text-outline-variant bg-surface-variant/5 rounded-full px-space-md">© 2024 Anjappam. All grace received, freely shared across Kerala.</div></div></footer></body></html>

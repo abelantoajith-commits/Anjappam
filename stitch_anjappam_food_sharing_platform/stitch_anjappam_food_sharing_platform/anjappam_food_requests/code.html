@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#cceea0", "primary-container": "#c98a2b", "secondary-fixed-dim": "#ffb3b0", "secondary": "#984543", "on-background": "#27180a", "on-primary": "#ffffff", "on-secondary-fixed": "#3f0207", "on-error-container": "#93000a", "primary-fixed": "#ffddb5", "background": "#fff8f5", "surface-dim": "#f2d5bd", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#643f00", "outline": "#837564", "surface-container-low": "#fff1e8", "surface-bright": "#fff8f5", "on-secondary-container": "#782c2c", "surface-variant": "#fbddc5", "primary-fixed-dim": "#ffb958", "tertiary-container": "#81a05b", "error": "#ba1a1a", "primary": "#845400", "on-tertiary-fixed": "#102000", "tertiary-fixed-dim": "#b0d186", "inverse-on-surface": "#ffeee1", "on-primary-fixed": "#2a1800", "surface-tint": "#845400", "secondary-container": "#fe9693", "secondary-fixed": "#ffdad8", "inverse-primary": "#ffb958", "on-error": "#ffffff", "surface-container-highest": "#fbddc5", "on-tertiary-fixed-variant": "#344e12", "inverse-surface": "#3e2d1d", "on-secondary-fixed-variant": "#7a2e2e", "surface-container-lowest": "#ffffff", "surface-container-high": "#ffe3cd", "error-container": "#ffdad6", "outline-variant": "#d6c4b1", "on-tertiary": "#ffffff", "surface-container": "#ffeada", "on-tertiary-container": "#1e3500", "on-primary-container": "#442900", "on-surface-variant": "#514536", "on-surface": "#27180a", "surface": "#fff8f5", "tertiary": "#4b6728" }, "borderRadius": { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "margin-tablet": "2rem", "space-xs": "0.25rem", "gutter": "1.25rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "margin": "1rem", "margin-desktop": "3rem", "gutter-desktop": "2rem", "space-xl": "2.5rem" }, "fontFamily": { "body-sm": [ "Inter" ], "headline-lg-mobile": [ "Playfair Display" ], "body-md": [ "Inter" ], "label-sm": [ "Inter" ], "headline-md": [ "Playfair Display" ], "title-md": [ "Inter" ], "label-md": [ "Inter" ], "headline-sm": [ "Playfair Display" ], "body-lg": [ "Inter" ], "headline-lg": [ "Playfair Display" ], "display-lg-mobile": [ "Playfair Display" ], "display-lg": [ "Playfair Display" ], "label-lg": [ "Inter" ] }, "fontSize": { "body-sm": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "headline-lg-mobile": [ "26px", { "lineHeight": "34px", "fontWeight": "600" } ], "body-md": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "label-sm": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "headline-md": [ "24px", { "lineHeight": "32px", "fontWeight": "500" } ], "title-md": [ "18px", { "lineHeight": "26px", "fontWeight": "600" } ], "label-md": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-sm": [ "20px", { "lineHeight": "28px", "fontWeight": "500" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "display-lg-mobile": [ "34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "display-lg": [ "48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "label-lg": [ "15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(59,42,26,0.05)]"><div class="h-20 max-w-[1200px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between"><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-space-xs bg-surface-container hover:bg-surface-container-high text-on-surface hover:text-on-surface py-space-xs px-space-md rounded-full transition-colors" data-path="food-requests" href="#"><span class="font-label-md text-label-md">Requests</span><span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface"></span></a></div><div class="flex items-center justify-center"><a class="flex items-center gap-space-xs" data-path="home" href="#"><img alt="Anjappam Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W0Zysugnvo9h3qBjdo57uWuAvKfAxBCJDKPCt9XNj-M3m42-rrk4DFFtMNr5plG-kEBvkIihsgjd2OcyegXM0ow-q2cPWWwtNgLnB03etjqJeeIb2x8Dcr3l7R5kKXW6eLM-9Q9pvgbssvzcC20MRjK1fP0RVyc8efXm3I_yUbwp1_At9_vBBH4KqeXPLzf65KI8xzs6ExrXuDQt_JGvyLWze63pzLtcyZAQ1PoW1T"/><span class="font-headline-sm text-headline-sm text-primary">Anjappam</span></a></div><div class="flex items-center gap-space-lg"><nav class="hidden lg:flex items-center gap-space-md" data-active-classes="bg-surface-container-high text-on-surface font-bold"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-xs px-space-md rounded-full transition-colors" data-path="home" href="#">Home</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-xs px-space-md rounded-full transition-colors" data-path="donate-food" href="#">Donate</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-xs px-space-md rounded-full transition-colors" data-path="receive-food" href="#">Receive</a></nav><div class="flex items-center gap-space-sm"><a class="inline-flex items-center justify-center font-label-lg text-label-lg bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container px-space-lg py-space-sm rounded-full transition-colors shadow-[0_4px_20px_-2px_rgba(59,42,26,0.06)]" data-path="login" href="#">Login / Sign Up</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<div class="max-w-[1200px] w-full mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg mb-space-xl">
+<div class="space-y-space-sm max-w-2xl">
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">volunteer_activism</span>
+<span>Community Breadlines &amp; Shelters</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Food Requests</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Shelters, orphanages, and community groups requesting urgent meals. Review needs and accept to fulfill them with reverence and care.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg transition-all shadow-[0_4px_20px_-2px_rgba(59,42,26,0.12)] hover:scale-[1.02] active:scale-[0.98]" id="post-request-btn">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>+ Post a New Request</span>
+</button>
+</div>
+</div>
+<div class="mb-space-xl p-space-lg rounded-lg bg-surface-container-low shadow-[0_4px_20px_-2px_rgba(59,42,26,0.04)] relative overflow-hidden">
+<div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-primary-fixed/20 pointer-events-none blur-2xl"></div>
+<div class="flex items-start gap-space-md relative z-10">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">info</span>
+</div>
+<div class="space-y-space-xs">
+<h2 class="font-title-md text-title-md text-on-surface font-semibold">Immediate Contact &amp; Handover Guidance</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Direct contact details, delivery addresses, and coordination telephone numbers are revealed immediately after you click <span class="font-medium text-primary">‘Accept Request’</span>. Verified shelter caretakers will be notified via SMS to prepare for food intake.
+          </p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-space-xl items-center">
+<div class="lg:col-span-8 flex flex-wrap items-center gap-space-xs bg-surface-container-low p-1.5 rounded-full">
+<button class="tab-btn font-label-lg text-label-lg px-space-lg py-space-xs rounded-full transition-all bg-surface-container-highest text-on-surface font-bold shadow-sm" data-tab="all">
+          All Requests <span class="ml-1 opacity-70">(18)</span>
+</button>
+<button class="tab-btn font-label-lg text-label-lg px-space-lg py-space-xs rounded-full transition-all text-on-surface-variant hover:text-on-surface" data-tab="urgent">
+          Urgent / Today <span class="ml-1 opacity-70">(8)</span>
+</button>
+<button class="tab-btn font-label-lg text-label-lg px-space-lg py-space-xs rounded-full transition-all text-on-surface-variant hover:text-on-surface" data-tab="scheduled">
+          Scheduled This Week <span class="ml-1 opacity-70">(10)</span>
+</button>
+</div>
+<div class="lg:col-span-4 flex items-center justify-start lg:justify-end gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">District:</span>
+<div class="relative w-full max-w-[200px]">
+<select class="w-full appearance-none bg-surface-container-low text-on-surface font-label-md text-label-md py-space-xs pl-space-md pr-space-xl rounded-full focus:outline-none cursor-pointer" id="district-filter">
+<option value="all">All Districts</option>
+<option value="kochi">Kochi</option>
+<option value="thrissur">Thrissur</option>
+<option value="kozhikode">Kozhikode</option>
+<option value="trivandrum">Trivandrum</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[18px] text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</div>
+<div class="space-y-space-md mb-space-xl" id="requests-container">
+<div class="request-card bg-surface-container-lowest rounded-lg p-space-lg lg:p-space-xl shadow-[0_4px_20px_-2px_rgba(59,42,26,0.06)] hover:shadow-[0_8px_30px_-4px_rgba(59,42,26,0.1)] transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg" data-district="kochi" data-urgent="true">
+<div class="space-y-space-sm max-w-2xl">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-space-md py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-semibold tracking-wide">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Open Need
+            </span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-space-md py-0.5 rounded-full bg-error-container text-on-error-container font-semibold">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+              Urgent · Needed Today 1:30 PM
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span>
+              Kakkanad, Kochi
+            </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Biriyani · for 50 people</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-space-xs mt-1">
+<span class="material-symbols-outlined text-[18px] text-primary">domain</span>
+              Requested by: <span class="font-semibold text-on-surface">Ashrayam Children's Home</span>
+</p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="flex items-center gap-1 text-primary-container" title="Portion volume">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">50 servings verified</span>
+</div>
+<div class="hidden contact-panel bg-surface-container p-space-md rounded-DEFAULT space-y-space-xs animate-fadeIn">
+<p class="font-label-md text-label-md text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">phone_in_talk</span>
+              Contact: Sr. Maria Theresa (+91 94471 20984)
+            </p>
+<p class="font-label-md text-label-md text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">location_on</span>
+              Address: Ashrayam Children's Home, Near Infopark North Gate, Kakkanad
+            </p>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-space-md shrink-0">
+<div class="text-left lg:text-right">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block">Batch Ref</span>
+<span class="font-label-md text-label-md font-mono text-on-surface">#REQ-KCH-801</span>
+</div>
+<button class="accept-btn inline-flex items-center justify-center gap-space-xs font-label-lg text-label-lg px-space-xl py-space-sm rounded-full bg-primary-container hover:bg-primary text-on-primary transition-all shadow-[0_4px_16px_-2px_rgba(201,138,43,0.3)] hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-[18px]">handshake</span>
+<span>Accept Request</span>
+</button>
+</div>
+</div>
+<div class="request-card bg-surface-container-lowest rounded-lg p-space-lg lg:p-space-xl shadow-[0_4px_20px_-2px_rgba(59,42,26,0.06)] hover:shadow-[0_8px_30px_-4px_rgba(59,42,26,0.1)] transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg" data-district="thrissur" data-urgent="true">
+<div class="space-y-space-sm max-w-2xl">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-space-md py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-semibold tracking-wide">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Open Need
+            </span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-space-md py-0.5 rounded-full bg-error-container text-on-error-container font-semibold">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+              Urgent · Needed Today 7:00 PM
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span>
+              Thrissur Town
+            </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Rice and curry · for 100 people</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-space-xs mt-1">
+<span class="material-symbols-outlined text-[18px] text-primary">domain</span>
+              Requested by: <span class="font-semibold text-on-surface">Sneha Bhavan Elder Shelter</span>
+</p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="flex items-center gap-1 text-primary-container" title="Portion volume">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">100 elder care meals needed</span>
+</div>
+<div class="hidden contact-panel bg-surface-container p-space-md rounded-DEFAULT space-y-space-xs animate-fadeIn">
+<p class="font-label-md text-label-md text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">phone_in_talk</span>
+              Contact: Fr. Joy Varghese (+91 98462 11823)
+            </p>
+<p class="font-label-md text-label-md text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">location_on</span>
+              Address: Sneha Bhavan, East Fort, Round East, Thrissur Town
+            </p>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-space-md shrink-0">
+<div class="text-left lg:text-right">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block">Batch Ref</span>
+<span class="font-label-md text-label-md font-mono text-on-surface">#REQ-TSR-412</span>
+</div>
+<button class="accept-btn inline-flex items-center justify-center gap-space-xs font-label-lg text-label-lg px-space-xl py-space-sm rounded-full bg-primary-container hover:bg-primary text-on-primary transition-all shadow-[0_4px_16px_-2px_rgba(201,138,43,0.3)] hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-[18px]">handshake</span>
+<span>Accept Request</span>
+</button>
+</div>
+</div>
+<div class="request-card bg-surface-container-lowest rounded-lg p-space-lg lg:p-space-xl shadow-[0_4px_20px_-2px_rgba(59,42,26,0.06)] hover:shadow-[0_8px_30px_-4px_rgba(59,42,26,0.1)] transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg" data-district="kochi" data-urgent="false">
+<div class="space-y-space-sm max-w-2xl">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-space-md py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-semibold tracking-wide">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Open Need
+            </span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-space-md py-0.5 rounded-full bg-surface-container text-on-surface-variant font-semibold">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+              Needed Tomorrow Morning
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span>
+              Aluva, Ernakulam
+            </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Bread &amp; Milk / Porridge · for 35 people</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-space-xs mt-1">
+<span class="material-symbols-outlined text-[18px] text-primary">domain</span>
+              Requested by: <span class="font-semibold text-on-surface">St. Joseph Community Kitchen</span>
+</p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="flex items-center gap-1 text-primary-container" title="Portion volume">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px] text-outline-variant">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px] text-outline-variant">lunch_dining</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">35 breakfast meals</span>
+</div>
+<div class="hidden contact-panel bg-surface-container p-space-md rounded-DEFAULT space-y-space-xs animate-fadeIn">
+<p class="font-label-md text-label-md text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">phone_in_talk</span>
+              Contact: Brother Antony (+91 94008 34912)
+            </p>
+<p class="font-label-md text-label-md text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">location_on</span>
+              Address: St. Joseph Parish Hall, Bypass Junction, Aluva
+            </p>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-space-md shrink-0">
+<div class="text-left lg:text-right">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block">Batch Ref</span>
+<span class="font-label-md text-label-md font-mono text-on-surface">#REQ-EKM-305</span>
+</div>
+<button class="accept-btn inline-flex items-center justify-center gap-space-xs font-label-lg text-label-lg px-space-xl py-space-sm rounded-full bg-primary-container hover:bg-primary text-on-primary transition-all shadow-[0_4px_16px_-2px_rgba(201,138,43,0.3)] hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-[18px]">handshake</span>
+<span>Accept Request</span>
+</button>
+</div>
+</div>
+<div class="request-card bg-surface-container-low opacity-80 rounded-lg p-space-lg lg:p-space-xl shadow-[0_2px_12px_-2px_rgba(59,42,26,0.04)] flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg" data-district="thrissur" data-urgent="true">
+<div class="space-y-space-sm max-w-2xl">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-space-md py-0.5 rounded-full bg-surface-dim text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              Accepted by Taj Caterers
+            </span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-space-md py-0.5 rounded-full bg-surface-container text-on-surface-variant">
+              Needed Today 8:30 PM
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span>
+              Chalakkudy
+            </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface-variant line-through font-semibold">Chapati &amp; Dal · for 80 people</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-space-xs mt-1">
+<span class="material-symbols-outlined text-[18px]">domain</span>
+              Requested by: <span class="font-medium">Good Shepherd Hope Centre</span>
+</p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="flex items-center gap-1 text-outline" title="Portion volume">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px] text-outline-variant">lunch_dining</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Fulfilled &amp; in transit</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-space-md shrink-0">
+<div class="text-left lg:text-right">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block">Batch Ref</span>
+<span class="font-label-md text-label-md font-mono text-outline">#REQ-CKD-910</span>
+</div>
+<button class="inline-flex items-center justify-center gap-space-xs font-label-lg text-label-lg px-space-xl py-space-sm rounded-full bg-surface-dim text-on-surface-variant cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span>Accepted</span>
+</button>
+</div>
+</div>
+<div class="request-card bg-surface-container-lowest rounded-lg p-space-lg lg:p-space-xl shadow-[0_4px_20px_-2px_rgba(59,42,26,0.06)] hover:shadow-[0_8px_30px_-4px_rgba(59,42,26,0.1)] transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg" data-district="kochi" data-urgent="true">
+<div class="space-y-space-sm max-w-2xl">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-space-md py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-semibold tracking-wide">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Open Need
+            </span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-space-md py-0.5 rounded-full bg-error-container text-on-error-container font-semibold">
+<span class="material-symbols-outlined text-[14px]">alarm</span>
+              Urgent · Needed Today 12:30 PM
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span>
+              Fort Kochi
+            </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Vegetable Meals · for 60 people</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-space-xs mt-1">
+<span class="material-symbols-outlined text-[18px] text-primary">domain</span>
+              Requested by: <span class="font-semibold text-on-surface">Little Flower Care Home</span>
+</p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="flex items-center gap-1 text-primary-container" title="Portion volume">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+<span class="material-symbols-outlined text-[18px] text-outline-variant">lunch_dining</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">60 hot noon meals</span>
+</div>
+<div class="hidden contact-panel bg-surface-container p-space-md rounded-DEFAULT space-y-space-xs animate-fadeIn">
+<p class="font-label-md text-label-md text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">phone_in_talk</span>
+              Contact: Mother Superior Clara (+91 97455 89201)
+            </p>
+<p class="font-label-md text-label-md text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">location_on</span>
+              Address: Little Flower Convent Road, Near St. Francis Church, Fort Kochi
+            </p>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-space-md shrink-0">
+<div class="text-left lg:text-right">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block">Batch Ref</span>
+<span class="font-label-md text-label-md font-mono text-on-surface">#REQ-FTK-122</span>
+</div>
+<button class="accept-btn inline-flex items-center justify-center gap-space-xs font-label-lg text-label-lg px-space-xl py-space-sm rounded-full bg-primary-container hover:bg-primary text-on-primary transition-all shadow-[0_4px_16px_-2px_rgba(201,138,43,0.3)] hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-[18px]">handshake</span>
+<span>Accept Request</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-space-xl pt-space-xl bg-surface-container-low rounded-lg p-space-lg lg:p-space-xl">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-title-md text-title-md text-on-surface">100% Shelter Vetted</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Every orphanage and shelter is registered and physical location verified by our volunteer chapters.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center shrink-0 text-tertiary">
+<span class="material-symbols-outlined">schedule_send</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-title-md text-title-md text-on-surface">Rapid Logistics</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Upon accepting, our dispatch hotline assists with temperature-controlled insulated transportation if required.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined">heart_check</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-title-md text-title-md text-on-surface">Grace Multiplied</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">“Gather up the fragments that remain over, so that nothing be lost.” Over 24,000 meals distributed with dignity.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-on-surface/40 backdrop-blur-sm hidden p-margin" id="request-modal">
+<div class="bg-surface-container-lowest max-w-lg w-full rounded-xl p-space-xl shadow-[0_16px_40px_-8px_rgba(59,42,26,0.2)] space-y-space-lg relative animate-scaleUp">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[24px]">church</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Post a Meal Request</h3>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant" id="close-modal-btn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Registered community kitchens, recognized orphanages, and care shelters across Kerala may publish needed meals.
+      </p>
+<form class="space-y-space-md" id="post-form" onsubmit="event.preventDefault(); alert('Request successfully registered for Anjappam review.'); document.getElementById('request-modal').classList.add('hidden');">
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface font-medium block">Organization / Shelter Name</label>
+<input class="w-full bg-surface-container-low px-space-md py-space-sm rounded-full text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container" placeholder="e.g. St. Thomas Home for Children" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface font-medium block">Meal Type &amp; Details</label>
+<input class="w-full bg-surface-container-low px-space-md py-space-sm rounded-full text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container" placeholder="e.g. Rice &amp; Sambar" required="" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface font-medium block">Portion Count (People)</label>
+<input class="w-full bg-surface-container-low px-space-md py-space-sm rounded-full text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container" min="5" placeholder="50" required="" type="number"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface font-medium block">District</label>
+<select class="w-full bg-surface-container-low px-space-md py-space-sm rounded-full text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container">
+<option>Kochi</option>
+<option>Thrissur</option>
+<option>Kozhikode</option>
+<option>Trivandrum</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface font-medium block">Needed By</label>
+<input class="w-full bg-surface-container-low px-space-md py-space-sm rounded-full text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container" placeholder="Today 8:00 PM" required="" type="text"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface font-medium block">Phone / Mobile for Direct Coordination</label>
+<input class="w-full bg-surface-container-low px-space-md py-space-sm rounded-full text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container" placeholder="+91 984XX XXXXX" required="" type="tel"/>
+</div>
+<div class="pt-space-sm flex items-center justify-end gap-space-sm">
+<button class="px-space-lg py-space-sm rounded-full text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container" id="cancel-modal-btn" type="button">Cancel</button>
+<button class="px-space-xl py-space-sm rounded-full bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-primary-container" type="submit">Submit Request</button>
+</div>
+</form>
+</div>
+</div>
+<script>
+    (function() {
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const districtSelect = document.getElementById('district-filter');
+      const requestCards = document.querySelectorAll('.request-card');
+      const postBtn = document.getElementById('post-request-btn');
+      const modal = document.getElementById('request-modal');
+      const closeModalBtn = document.getElementById('close-modal-btn');
+      const cancelModalBtn = document.getElementById('cancel-modal-btn');
+
+      let currentTab = 'all';
+      let currentDistrict = 'all';
+
+      function filterCards() {
+        requestCards.forEach(card => {
+          const cardDistrict = card.getAttribute('data-district');
+          const isUrgent = card.getAttribute('data-urgent') === 'true';
+
+          let tabMatches = false;
+          if (currentTab === 'all') {
+            tabMatches = true;
+          } else if (currentTab === 'urgent' && isUrgent) {
+            tabMatches = true;
+          } else if (currentTab === 'scheduled' && !isUrgent) {
+            tabMatches = true;
+          }
+
+          let districtMatches = (currentDistrict === 'all' || cardDistrict === currentDistrict);
+
+          if (tabMatches && districtMatches) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      }
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabButtons.forEach(b => {
+            b.classList.remove('bg-surface-container-highest', 'text-on-surface', 'font-bold', 'shadow-sm');
+            b.classList.add('text-on-surface-variant');
+          });
+          btn.classList.add('bg-surface-container-highest', 'text-on-surface', 'font-bold', 'shadow-sm');
+          btn.classList.remove('text-on-surface-variant');
+          currentTab = btn.getAttribute('data-tab');
+          filterCards();
+        });
+      });
+
+      if (districtSelect) {
+        districtSelect.addEventListener('change', (e) => {
+          currentDistrict = e.target.value;
+          filterCards();
+        });
+      }
+
+      document.querySelectorAll('.accept-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          const card = this.closest('.request-card');
+          const panel = card.querySelector('.contact-panel');
+          
+          if (panel) {
+            panel.classList.remove('hidden');
+          }
+
+          this.classList.remove('bg-primary-container', 'hover:bg-primary');
+          this.classList.add('bg-tertiary', 'hover:bg-tertiary-container');
+          this.innerHTML = `
+            <span class="material-symbols-outlined text-[18px]">verified</span>
+            <span>Accepted · Details Unlocked</span>
+          `;
+          this.disabled = true;
+          this.classList.add('cursor-default');
+        });
+      });
+
+      if (postBtn && modal) {
+        postBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+      }
+      if (closeModalBtn && modal) {
+        closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+      }
+      if (cancelModalBtn && modal) {
+        cancelModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+      }
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) modal.classList.add('hidden');
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-inverse-surface text-inverse-on-surface"><div class="max-w-[1200px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter lg:gap-gutter-desktop"><div class="lg:col-span-5 space-y-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md text-primary-fixed">Anjappam</span></div><p class="font-title-md text-title-md text-primary-fixed-dim">Five loaves · Bread for all</p><p class="font-body-sm text-body-sm text-outline-variant max-w-sm">“A Christian initiative to share excess food with dignity and reverence.”</p></div><div class="lg:col-span-3 space-y-space-sm"><h3 class="font-label-lg text-label-lg text-primary-fixed uppercase tracking-wider">Community</h3><ul class="space-y-space-xs"><li class="list-none"><a class="font-body-sm text-body-sm text-inverse-on-surface hover:text-primary-fixed transition-colors" data-path="home" href="#">Home</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-inverse-on-surface hover:text-primary-fixed transition-colors" data-path="donate-food" href="#">Donate</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-inverse-on-surface hover:text-primary-fixed transition-colors" data-path="receive-food" href="#">Receive</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-inverse-on-surface hover:text-primary-fixed transition-colors" data-path="food-requests" href="#">Food Requests</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-inverse-on-surface hover:text-primary-fixed transition-colors" data-path="about-us" href="#">About Us</a></li></ul></div><div class="lg:col-span-4 space-y-space-sm"><h3 class="font-label-lg text-label-lg text-primary-fixed uppercase tracking-wider">Contact Details</h3><div class="space-y-space-xs font-body-sm text-body-sm text-outline-variant"><p class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-[18px] text-primary-fixed-dim">location_on</span>Kochi, Kerala, India</p><p class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-primary-fixed-dim">mail</span>info@anjappam.org</p><p class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-primary-fixed-dim">call</span>+91 484 255 1947</p></div></div></div><div class="mt-space-xl pt-space-lg text-center font-body-sm text-body-sm text-outline-variant bg-surface-variant/5 rounded-full px-space-md">© 2024 Anjappam. All grace received, freely shared across Kerala.</div></div></footer></body></html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <circle cx="50" cy="50" r="46" fill="#FFEADA" stroke="#C98A2B" stroke-width="2"/>
+  <!-- Five Loaves Stylized Arrangement -->
+  <path d="M50 26 C43 26 38 31 38 37 C38 43 43 45 50 45 C57 45 62 43 62 37 C62 31 57 26 50 26 Z" fill="#C98A2B"/>
+  <path d="M30 42 C24 42 20 46 20 51 C20 56 24 58 30 58 C36 58 40 56 40 51 C40 46 36 42 30 42 Z" fill="#845400"/>
+  <path d="M70 42 C64 42 60 46 60 51 C60 56 64 58 70 58 C76 58 80 56 80 51 C80 46 76 42 70 42 Z" fill="#845400"/>
+  <path d="M38 59 C32 59 28 63 28 68 C28 73 32 75 38 75 C44 75 48 73 48 68 C48 63 44 59 38 59 Z" fill="#C98A2B"/>
+  <path d="M62 59 C56 59 52 63 52 68 C52 73 56 75 62 75 C68 75 72 73 72 68 C72 63 68 59 62 59 Z" fill="#C98A2B"/>
+  <!-- Subtle wheat sheaf grain lines -->
+  <path d="M47 34 L53 40" stroke="#FFF8EE" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M28 48 L32 54" stroke="#FFEADA" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M68 48 L72 54" stroke="#FFEADA" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
